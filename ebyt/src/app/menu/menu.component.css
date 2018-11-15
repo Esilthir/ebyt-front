@@ -1,10 +1,61 @@
-nav {
-
-    background-color: #000;
-    color: #ecebf3;
-    bottom: 0;
+*{
+    padding: 0 !important;
 }
-hr{
-    border : 1px solid #fff;
-    margin: 10px 0;
+nav {
+    padding: inherit;
+    background-color: #1c1c1c;
+    color: #ecebf3;
+    text-align: center;
+    height: 100%;
+}
+a{
+    color: #ecebf3;
+    font-weight: bold;
+}
+a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}
+nav > div{
+    border-bottom: 2px solid #ecebf3;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
+nav div:first-child{
+    padding-top: 10px !important;
+
+}
+nav div:nth-child(2){
+    line-height: 40px;
+    position: relative;
+}
+nav div:nth-child(2) p{
+    display: inline-block;
+    line-height: 1;
+}
+nav div:nth-child(4){
+    position: relative;
+}
+.remplacement{
+    position: absolute;
+    margin-left: 15%;
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    float: left;
+    border-radius: 50%;
+}
+nav ul li {
+    margin: 12px 0;
+}
+nav input{
+    background-color: #1c1c1c;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    color: #ecebf3;
+}
+input::placeholder{
+    color: #ecebf3;
+    font-family: 'Poppins', sans-serif;
 }
