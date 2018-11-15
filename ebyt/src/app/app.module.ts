@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { CreationConcertComponent } from './creation-concert/creation-concert.component';
+//import { CreationConcertComponent } from './creation-concert/creation-concert.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -16,7 +16,7 @@ import { ButtonModule } from 'primeng/button';
     AppComponent,
     MenuComponent,
     FooterComponent,
-    CreationConcertComponent,
+    //CreationConcertComponent,
     ConnexionComponent
   ],
   imports: [
