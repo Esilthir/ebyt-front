@@ -51,8 +51,8 @@ nav ul li {
 nav input{
     background-color: #1c1c1c;
     margin-top: 10px;
+    width: 50%;
     text-align: center;
-    width: 100%;
     color: #ecebf3;
 }
 input::placeholder{
