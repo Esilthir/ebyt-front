@@ -27,6 +27,7 @@ const routes: Routes =
   {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
+  {path: '', component: HomeComponent}
 ]; 
 
 
