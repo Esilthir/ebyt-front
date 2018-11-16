@@ -10,18 +10,19 @@ import { Concert } from '../concert';
   styleUrls: ['./concert-reactive-form.component.css']
 })
 export class ConcertReactiveFormComponent implements OnInit {
-	ponyForm = this.fb.group({
-		artist: ['nom', Validators.required], 
-		date: ['0', Validators.required], 
-		genre: ['color', Validators.required],
-		description: ['0', Validators.required],
-		nbMaxPlace: ['0', Validators.required],
-		price: ['0', Validators.required],
-		nbBoughtPlace: ['0', Validators.required]
+	concertForm = this.fb.group({
+		artist: ['', Validators.required],
+		name: ['', Validators.required],
+		date: ['', Validators.required], 
+		genre: ['', Validators.required],
+		description: ['', Validators.required],
+		nbMaxPlace: ['', Validators.required],
+		price: ['', Validators.required],
 	});
 
 	add: boolean;
 	id: number;
+	nbBoughtPlace: number;
 
   constructor(private fb: FormBuilder, private serviceConcert: ConcertService, private router: Router, private routeActive: ActivatedRoute) {}
 
@@ -32,34 +33,36 @@ export class ConcertReactiveFormComponent implements OnInit {
 		else{
 			this.add = false;
 			this.id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
-			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => this.ponyForm.setValue({
+			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => {this.concertForm.setValue({
 				artist: c.artist, 
+				name: c.name,
 				date: c.date, 
 				genre: c.genre,
 				description: c.description,
 				nbMaxPlace: c.nbMaxPlace,
 				price: c.price,
-				nbBoughtPlace: c.nbBoughtPlace
-			}));
+			}); 
+			this.nbBoughtPlace = c.nbBoughtPlace});
 		}
 	}
 
 	onSubmit(){
 		if(this.add){
-			let c: Concert = new Concert(this.ponyForm.value.artist, this.ponyForm.value.date, this.ponyForm.value.genre, this.ponyForm.value.description, 
-				this.ponyForm.value.nbMaxPlace, this.ponyForm.value.price, this.ponyForm.value.nbBoughtPlace);
+			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.name, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
+				this.concertForm.value.nbMaxPlace, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
 			this.serviceConcert.addConcert(c);
 		}
 		else{
 			let concertUpdated = new Concert();
 			concertUpdated.id = this.id;
-			concertUpdated.artist = this.ponyForm.value.artist;
-			concertUpdated.date = this.ponyForm.value.date;
-			concertUpdated.genre = this.ponyForm.value.genre;
-			concertUpdated.description = this.ponyForm.value.description;
-			concertUpdated.nbMaxPlace = this.ponyForm.value.nbMaxPlace;
-			concertUpdated.price = this.ponyForm.value.price;
-			concertUpdated.nbBoughtPlace = this.ponyForm.value.nbBoughtPlace;
+			concertUpdated.artist = this.concertForm.value.artist;
+			concertUpdated.name = this.concertForm.value.artist;
+			concertUpdated.date = this.concertForm.value.date;
+			concertUpdated.genre = this.concertForm.value.genre;
+			concertUpdated.description = this.concertForm.value.description;
+			concertUpdated.nbMaxPlace = this.concertForm.value.nbMaxPlace;
+			concertUpdated.price = this.concertForm.value.price;
+			concertUpdated.nbBoughtPlace = this.nbBoughtPlace;
 			this.serviceConcert.updateConcert(concertUpdated);
 		}
 	}
