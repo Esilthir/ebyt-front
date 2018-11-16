@@ -11,13 +11,13 @@ import { Concert } from '../concert';
 })
 export class ConcertReactiveFormComponent implements OnInit {
 	concertForm = this.fb.group({
-		artist: ['nom', Validators.required], 
-		date: ['0', Validators.required], 
-		genre: ['color', Validators.required],
-		description: ['0', Validators.required],
-		nbMaxPlace: ['0', Validators.required],
-		price: ['0', Validators.required],
-		nbBoughtPlace: ['0', Validators.required]
+		artist: ['nom'], 
+		date: ['0'], 
+		genre: ['color'],
+		description: ['0'],
+		nbMaxPlace: ['0'],
+		price: ['0'],
+		nbBoughtPlace: ['0']
 	});
 
 	add: boolean;
