@@ -11,6 +11,6 @@ export class User {
 		this.password = password === undefined ? null : password;
 		this.lastname = lastname === undefined ? null : lastname;
 		this.firstname = firstname === undefined ? null : firstname;
-		this	picture =	picture === undefined ? null :	picture;
+		this.picture =	picture === undefined ? null :	picture;
 	}
 }
