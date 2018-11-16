@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Concert } from './concert';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class ConcertService {
 
 	updateConcert(concert : Concert){
 		this.http.put(this.url + concert.id, concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+	}
+
+	getConcert(id : number) : Observable<Concert>{
+		return this.http.get<Concert>(this.url + '/' + id, this.httpOptions);
 	}
 }

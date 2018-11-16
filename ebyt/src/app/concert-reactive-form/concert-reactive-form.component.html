@@ -1,0 +1,13 @@
+<h1 *ngIf="add">Entrer un nouveau concert</h1>
+<h1 *ngIf="!add">Mettre à jour le concert</h1>
+<form [formGroup]='concertForm' (ngSubmit) = 'onSubmit()'>
+	Artiste <input type='text' id='artist' name='' formControlName=''/><br>
+	Date <input type='text' id='date' name='' formControlName=''/><br>
+	Genre <input type='text' id='genre' name='' formControlName=''/><br>
+	Description <input type='text' id='description' name='' formControlName=''/><br>
+	Nombre de place max <input type='text' id='nbMaxPlace' name='' formControlName=''/><br>
+	Prix <input type='text' id='price' name='' formControlName=''/><br>
+	Nombre de place achetées <input type='text' id='nbBoughtPlace' name='' formControlName=''/><br>
+
+	<button type='submit' [disabled]='!concertForm.valid'>Enregistrer</button>
+</form>
