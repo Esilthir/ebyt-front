@@ -1,16 +1,16 @@
 export class User {
 	id: number;
-	mail: string;
-	mdp: string;
-	nom: string;
-	prenom: string;
-	photo: string;
+	username: string;
+	password: string;
+	lastname: string;
+	firstname: string;
+	picture: string;
 
-	constructor(mail?: string, mdp?: string, nom?: string, prenom?: string, photo?: string){
-		this.mail = mail === undefined ? null : mail;
-		this.mdp = mdp === undefined ? null : mdp;
-		this.nom = nom === undefined ? null : nom;
-		this.prenom = prenom === undefined ? null : prenom;
-		this.photo = photo === undefined ? null : photo;
+	constructor(username?: string, password?: string, lastname?: string, firstname?: string, picture?: string){
+		this.username = username === undefined ? null : username;
+		this.password = password === undefined ? null : password;
+		this.lastname = lastname === undefined ? null : lastname;
+		this.firstname = firstname === undefined ? null : firstname;
+		this.picture =	picture === undefined ? null :	picture;
 	}
 }
