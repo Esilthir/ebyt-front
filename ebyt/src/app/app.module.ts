@@ -10,8 +10,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import {MenuModule} from 'primeng/menu';
-import {SidebarModule} from 'primeng/sidebar';
+import { MenuModule } from 'primeng/menu';
+import { SidebarModule } from 'primeng/sidebar';
+import { HomeComponent } from './home/home.component';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import {SidebarModule} from 'primeng/sidebar';
     MenuComponent,
     FooterComponent,
     //CreationConcertComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

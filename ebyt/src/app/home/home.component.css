@@ -1,0 +1,80 @@
+h1{
+    color: #5c5e66;
+    padding: 60px;
+}
+
+h1.header{
+    color:white;
+}
+
+img{
+    width: 70%;
+    box-shadow: 1px 1px 12px #1c1c1c;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+img:hover{
+    opacity: 0.3;
+    filter: blur(4px);
+    transition: 0.2s;
+}
+
+
+img:hover.other{
+    color: black;
+}
+
+img:hover.header{
+    color: white;
+}
+
+.header{
+    background-color: #555;
+    color: white;
+}
+
+.title{
+    font-family: 'Rock Salt', cursive;
+    color: #23c8dd;
+}
+
+.home{
+    margin-bottom: 10%;
+}
+
+.imgs{
+    text-align: center;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.artist{
+    font-size: 2em;
+    width: 100%;
+}
+
+.other{
+    
+    color: #5c5e66;
+}
+
+.photo{
+    position: relative;
+}
+
+.hoverimage{
+    position: absolute; 
+    width:100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: -40%;
+    opacity: 0;
+    transition: 0.2s;
+}
+img:hover + div, img + div:hover{
+    opacity: 1;
+    transition: 0.5s;
+    font-size: 1.5em;
+}

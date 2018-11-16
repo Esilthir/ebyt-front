@@ -8,7 +8,9 @@ nav {
     background-color: #1c1c1c;
     color: #ecebf3;
     text-align: center;
-    height: 100vh;
+    height: 100vmax;
+    position: fixed;
+    width: 16.68%;
 }
 a{
     color: #ecebf3;
