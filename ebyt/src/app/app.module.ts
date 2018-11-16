@@ -10,6 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
+import { RouterModule, Routes, Router} from '@angular/router';
+
+const route: Routes = 
+[
+  {path: 'addConcert', component: ConcertReactiveFormComponent},
+  {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
+];
 
 @NgModule({
   declarations: [
@@ -17,7 +25,8 @@ import { ButtonModule } from 'primeng/button';
     MenuComponent,
     FooterComponent,
     //CreationConcertComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ConcertReactiveFormComponent
   ],
   imports: [
     BrowserModule,

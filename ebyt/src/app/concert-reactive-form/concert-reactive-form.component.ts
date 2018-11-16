@@ -10,7 +10,7 @@ import { Concert } from '../concert';
   styleUrls: ['./concert-reactive-form.component.css']
 })
 export class ConcertReactiveFormComponent implements OnInit {
-	ponyForm = this.fb.group({
+	concertForm = this.fb.group({
 		artist: ['nom', Validators.required], 
 		date: ['0', Validators.required], 
 		genre: ['color', Validators.required],
@@ -32,7 +32,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		else{
 			this.add = false;
 			this.id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
-			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => this.ponyForm.setValue({
+			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => this.concertForm.setValue({
 				artist: c.artist, 
 				date: c.date, 
 				genre: c.genre,
@@ -46,20 +46,20 @@ export class ConcertReactiveFormComponent implements OnInit {
 
 	onSubmit(){
 		if(this.add){
-			let c: Concert = new Concert(this.ponyForm.value.artist, this.ponyForm.value.date, this.ponyForm.value.genre, this.ponyForm.value.description, 
-				this.ponyForm.value.nbMaxPlace, this.ponyForm.value.price, this.ponyForm.value.nbBoughtPlace);
+			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
+				this.concertForm.value.nbMaxPlace, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
 			this.serviceConcert.addConcert(c);
 		}
 		else{
 			let concertUpdated = new Concert();
 			concertUpdated.id = this.id;
-			concertUpdated.artist = this.ponyForm.value.artist;
-			concertUpdated.date = this.ponyForm.value.date;
-			concertUpdated.genre = this.ponyForm.value.genre;
-			concertUpdated.description = this.ponyForm.value.description;
-			concertUpdated.nbMaxPlace = this.ponyForm.value.nbMaxPlace;
-			concertUpdated.price = this.ponyForm.value.price;
-			concertUpdated.nbBoughtPlace = this.ponyForm.value.nbBoughtPlace;
+			concertUpdated.artist = this.concertForm.value.artist;
+			concertUpdated.date = this.concertForm.value.date;
+			concertUpdated.genre = this.concertForm.value.genre;
+			concertUpdated.description = this.concertForm.value.description;
+			concertUpdated.nbMaxPlace = this.concertForm.value.nbMaxPlace;
+			concertUpdated.price = this.concertForm.value.price;
+			concertUpdated.nbBoughtPlace = this.concertForm.value.nbBoughtPlace;
 			this.serviceConcert.updateConcert(concertUpdated);
 		}
 	}
