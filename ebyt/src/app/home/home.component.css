@@ -14,18 +14,18 @@ img{
     transition: 0.2s;
 }
 
-img:hover{
+.photo:hover img{
     opacity: 0.3;
-    filter: blur(4px);
+    filter: blur(3px);
     transition: 0.2s;
 }
 
 
-img:hover.other{
+.photo:hover.other{
     color: black;
 }
 
-img:hover.header{
+.photo:hover.header{
     color: white;
 }
 
@@ -56,8 +56,8 @@ img:hover.header{
 }
 
 .other{
-    
     color: #5c5e66;
+    font-weight: bold;
 }
 
 .photo{
@@ -73,8 +73,13 @@ img:hover.header{
     opacity: 0;
     transition: 0.2s;
 }
-img:hover + div, img + div:hover{
+.photo:hover div, .photo div:hover{
     opacity: 1;
     transition: 0.5s;
+    font-size: 1.5em;
+}
+
+.photo:hover div, .photo div:hover{
+    transition: 0.2s;
     font-size: 1.5em;
 }
