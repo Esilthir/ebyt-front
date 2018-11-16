@@ -3,19 +3,26 @@
     <a href="#"><h1 class="title">EBYT</h1></a>
     <p>Every Beat You Take</p>
   </div>
-  <div>
+  <div  *ngIf="authenticated">
     <!-- <div class="remplacement"></div> -->
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1k1QoR3AwWiJPPThyenjWi5OzN9IVtzU7WmbAW8Zpljl-m0DD" alt="">
-    <p>
+    <div>
       <span><a href="">Nom </a> </span> 
       <span><a href="">Prenom</a></span>
-    </p>
+      <span><a href="">Mon Compte</a></span>
+      <button (click)="logout()">Logout</button>
+    </div>
   </div>
+    <div *ngIf="!authenticated">
+        <a routerLink="/login">Se connecter</a>
+    </div>
+
   <div>
     <ul>
       <li><a href="#">Accueil</a></li>
       <li><a href="#">Concerts</a></li>
       <li> <input type="text" placeholder="Recherche"></li>
+      <li *ngIf="role === 'ROLE_ADMIN'"><a href="#">Admin</a></li>
     </ul>
   </div>
   <div>

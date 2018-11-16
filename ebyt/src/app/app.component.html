@@ -10,16 +10,19 @@
     <router-outlet></router-outlet> -->
     
     <div class="ui-g">
-      <div class="ui-g-12 ui-md-2"><app-menu></app-menu></div>
+      <div class="ui-g-12 ui-md-2">
+        <app-menu></app-menu></div>
       <div class="ui-g-12 ui-md-10 ui-g-nopad">
         <div class="ui-g-12 ui-g-nopad">
           <div class="ui-g">
-            <div class="ui-g-12 ui-md-12"><app-home></app-home></div> 
-          </div>        
+            <div class="ui-g-12 ui-md-12">
+              <router-outlet></router-outlet>
+            </div> 
+          </div>
+
           <div class="ui-g">
               <div class="ui-g-12 ui-md-12" id="footer"><app-footer></app-footer></div>  
           </div>  
         </div>
       </div>
     </div>
-    <router-outlet></router-outlet>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AppComponent } from '../app.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  role: string;
+  authenticated: boolean;
+
+  constructor(private userService: UserService) {
+    
+   }
 
   ngOnInit() {
+    this.role = sessionStorage.getItem('role');
+    if(sessionStorage.getItem('username')) {
+      this.authenticated = true;
+    }
+  }
+
+  logout() {
+    this.userService.logout();
   }
 
 }

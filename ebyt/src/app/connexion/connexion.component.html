@@ -3,11 +3,11 @@
 <form (ngSubmit)="onSubmit()">
   <div class=formComponent>
     Identifiant : 
-    <input id="login" type="text" pInputText> 
+    <input type="text" name="username" pInputText required [(ngModel)]="model.username"> 
   </div>
   <div class=formComponent>
     Mot de passe : 
-    <input id="password" type="text" pInputText> 
+    <input type="text" name="password" pInputText required [(ngModel)]="model.password"> 
   </div>
   <div>
     <button pButton class="ui-button-raised ui-button-rounded" type="submit" label="Valider"></button>
