@@ -14,18 +14,16 @@ export class AppComponent {
   username: string;
   authenticated = false;
 
-  constructor(private userService: UserService, private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
     if (sessionStorage.getItem('username')) {
-      this.username = sessionStorage.getItem('username')
-      this.authenticated = true;
+      this.username = sessionStorage.getItem('username');
+      this.userService.currentAuth.subscribe(auth => this.authenticated = auth);
     }
 
   }
-  logout() {
-    this.userService.logout();
-  }
+
 }
 

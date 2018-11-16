@@ -14,7 +14,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+  {path: 'login', component: ConnexionComponent},
+];
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import {SidebarModule} from 'primeng/sidebar';
     FormsModule,
     HttpClientModule,
     MenuModule,
-    SidebarModule
+    SidebarModule,
+    CommonModule,
+    RouterModule.forRoot(routes)
+
   ],
   providers: [],
   bootstrap: [AppComponent]
