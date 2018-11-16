@@ -10,6 +10,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import {MenuModule} from 'primeng/menu';
+import {SidebarModule} from 'primeng/sidebar';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { ButtonModule } from 'primeng/button';
     AppRoutingModule,
     NgbModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    MenuModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
