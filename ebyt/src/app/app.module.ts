@@ -12,6 +12,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MenuModule} from 'primeng/menu';
+import {SidebarModule} from 'primeng/sidebar';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextModule,
     ButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MenuModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

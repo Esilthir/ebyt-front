@@ -8,6 +8,16 @@ form{
     background-color: #ffffff;
 }
 
+a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}
+
+.ui-button-raised.ui-button-rounded:hover{
+    background-color: #5c5e66;
+    transition: 0.3s;
+}
+
 .formComponent{
     margin: 30px;
 }
@@ -23,23 +33,11 @@ input .formComponent{
 }
 
 .connexion{
-    background-color: #ecebf3;
     font-family: 'Poppins', sans-serif;
     margin: 60px;
     color: #5c5e66;
 }
 
 a{
-    color: #23c8dd;
+    color: #5c5e66;
 }
-
-h1{
-    text-align: center;
-    font-size: 3em;    
-}
-
-h2{
-    text-align: center;
-    font-size: 2em;  
-}
-
