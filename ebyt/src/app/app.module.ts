@@ -12,12 +12,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
 import { RouterModule, Routes, Router} from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {MenuModule} from 'primeng/menu';
+import {SidebarModule} from 'primeng/sidebar';
 
 const route: Routes = 
 [
   {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
 ];
+
 
 @NgModule({
   declarations: [
@@ -33,7 +38,11 @@ const route: Routes =
     AppRoutingModule,
     NgbModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule,
+    HttpClientModule,
+    MenuModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

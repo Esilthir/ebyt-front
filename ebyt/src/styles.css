@@ -7,6 +7,38 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
+
+
 .ui-g, .ui-g-2, .ui-g-10 {
     padding: 0 !important;
 }
+
+html, body{
+    height: 100%;
+    margin:0;
+    background-color: #ecebf3;
+}
+
+.ui-g-12{
+    padding: 0 !important;
+}
+
+#footer{
+    position: relative;
+}
+
+a{
+    color: #23c8dd;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em;    
+}
+
+h2{
+    text-align: center;
+    font-size: 2em;  
+}
+
+
