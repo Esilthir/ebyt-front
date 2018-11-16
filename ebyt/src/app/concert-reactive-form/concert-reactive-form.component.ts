@@ -11,17 +11,18 @@ import { Concert } from '../concert';
 })
 export class ConcertReactiveFormComponent implements OnInit {
 	concertForm = this.fb.group({
-		artist: ['nom'], 
-		date: ['0'], 
-		genre: ['color'],
-		description: ['0'],
-		nbMaxPlace: ['0'],
-		price: ['0'],
-		nbBoughtPlace: ['0']
+		artist: ['', Validators.required],
+		name: ['', Validators.required],
+		date: ['', Validators.required], 
+		genre: ['', Validators.required],
+		description: ['', Validators.required],
+		nbMaxPlace: ['', Validators.required],
+		price: ['', Validators.required],
 	});
 
 	add: boolean;
 	id: number;
+	nbBoughtPlace: number;
 
   constructor(private fb: FormBuilder, private serviceConcert: ConcertService, private router: Router, private routeActive: ActivatedRoute) {}
 
@@ -32,21 +33,22 @@ export class ConcertReactiveFormComponent implements OnInit {
 		else{
 			this.add = false;
 			this.id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
-			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => this.concertForm.setValue({
+			this.serviceConcert.getConcert(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(c => {this.concertForm.setValue({
 				artist: c.artist, 
+				name: c.name,
 				date: c.date, 
 				genre: c.genre,
 				description: c.description,
 				nbMaxPlace: c.nbMaxPlace,
 				price: c.price,
-				nbBoughtPlace: c.nbBoughtPlace
-			}));
+			}); 
+			this.nbBoughtPlace = c.nbBoughtPlace});
 		}
 	}
 
 	onSubmit(){
 		if(this.add){
-			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
+			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.name, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
 				this.concertForm.value.nbMaxPlace, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
 			this.serviceConcert.addConcert(c);
 		}
@@ -54,12 +56,13 @@ export class ConcertReactiveFormComponent implements OnInit {
 			let concertUpdated = new Concert();
 			concertUpdated.id = this.id;
 			concertUpdated.artist = this.concertForm.value.artist;
+			concertUpdated.name = this.concertForm.value.artist;
 			concertUpdated.date = this.concertForm.value.date;
 			concertUpdated.genre = this.concertForm.value.genre;
 			concertUpdated.description = this.concertForm.value.description;
 			concertUpdated.nbMaxPlace = this.concertForm.value.nbMaxPlace;
 			concertUpdated.price = this.concertForm.value.price;
-			concertUpdated.nbBoughtPlace = this.concertForm.value.nbBoughtPlace;
+			concertUpdated.nbBoughtPlace = this.nbBoughtPlace;
 			this.serviceConcert.updateConcert(concertUpdated);
 		}
 	}

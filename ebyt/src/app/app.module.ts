@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
 
-const route: Routes = 
+const routes: Routes = 
 [
   {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
@@ -44,7 +44,8 @@ const route: Routes =
     FormsModule,
     HttpClientModule,
     MenuModule,
-    SidebarModule
+    SidebarModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
