@@ -13,7 +13,12 @@ export class MenuComponent implements OnInit {
   authenticated: boolean;
 
   constructor(private userService: UserService) {
-    
+    userService.identifiant$.subscribe(() => {
+      if (sessionStorage.getItem('username')){
+        this.authenticated = true;
+        this.role = sessionStorage.getItem('role');
+      }
+    })
    }
 
   ngOnInit() {
@@ -25,6 +30,8 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.userService.logout();
+    this.authenticated = false;
+    this.role = null;
   }
 
 }
