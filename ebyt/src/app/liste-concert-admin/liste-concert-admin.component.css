@@ -1,0 +1,47 @@
+.listeConcertAdminDetail {
+    text-align: center;
+}
+
+.listeConcertAdminDetail > div {
+    line-height: 50px;
+}
+
+.listeConcertAdminDetail:hover > div{
+    background-color: #B7B7B7;
+}
+
+.header{
+    background-color: #555;
+    color: white;
+}
+
+.ui-button-rounded{
+    background-color: #23c8dd;
+
+}
+
+.buttonSuppr {
+    width: 100px;
+    height: 24px;
+    padding: 0;
+    margin-right: 2px;
+}
+
+.buttonEdit {
+    height: 24px;
+    width: 70px;
+    padding: 0;
+    margin-right: 2px;
+}
+
+.buttonActive {
+    position: relative;
+    top: 8px;
+    display:inline;
+}
+
+hr {
+    color: red;
+
+}
+

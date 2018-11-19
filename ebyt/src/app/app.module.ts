@@ -19,7 +19,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
+import {InputSwitchModule} from 'primeng/inputswitch';
 import { CommonModule } from '@angular/common';
+import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 
 
 const routes: Routes = 
@@ -27,7 +29,8 @@ const routes: Routes =
   {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'admin/concerts', component: ListeConcertAdminComponent}
 ]; 
 
 
@@ -39,7 +42,8 @@ const routes: Routes =
     //CreationConcertComponent,
     ConnexionComponent,
     HomeComponent,
-    ConcertReactiveFormComponent
+    ConcertReactiveFormComponent,
+    ListeConcertAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ const routes: Routes =
     MenuModule,
     SidebarModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

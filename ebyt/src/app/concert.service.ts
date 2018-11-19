@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
 })
 export class ConcertService {
 
-	url = 'http://localhost:8070/concert/';	
+	url = 'http://localhost:8070/concert';	
 	httpOptions = {
 		headers: new HttpHeaders({'Content-type': 'application/json'})
 	};
@@ -19,14 +19,22 @@ export class ConcertService {
 	// La on met les méthodes qui discutent avec le back
 
 	addConcert(concert : Concert){
-		this.http.post(this.url, concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+		this.http.post(this.url + '/', concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 
 	updateConcert(concert : Concert){
-		this.http.put(this.url + concert.id, concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 
 	getConcert(id : number) : Observable<Concert>{
 		return this.http.get<Concert>(this.url + '/' + id, this.httpOptions);
+	}
+
+	getConcerts() : Observable<Array<Concert>>{
+		return this.http.get<Array<Concert>>(this.url + '/all', this.httpOptions);
+	}
+
+	deleteConcert(id: number) {
+		this.http.delete(this.url + "/" + id, this.httpOptions).subscribe();
 	}
 }
