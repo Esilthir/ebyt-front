@@ -31,7 +31,7 @@ const routes: Routes =
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
   {path: '', component: HomeComponent},
-  {path: 'admin/concerts', component: ListeConcertAdminComponent}
+  {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
   {path: '', component: HomeComponent}
 ]; 
