@@ -1,0 +1,43 @@
+form{
+    display: block;
+    margin: 80px;
+    text-align: center;
+    border-style: solid;
+    border-color: #5c5e66;
+    border-width: 5px;
+    background-color: #ffffff;
+}
+
+/*a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}
+
+.ui-button-raised.ui-button-rounded:hover{
+    background-color: #5c5e66;
+    transition: 0.3s;
+}
+
+.formComponent{
+    margin: 30px;
+}
+
+input .formComponent{
+    width: 100%;
+}
+
+.ui-button-rounded{
+    margin: 30px;
+    background-color: #23c8dd;
+    border-width: 0;
+}
+
+.connexion{
+    font-family: 'Poppins', sans-serif;
+    margin: 60px;
+    color: #5c5e66;
+}
+
+a{
+    color: #5c5e66;
+}*/

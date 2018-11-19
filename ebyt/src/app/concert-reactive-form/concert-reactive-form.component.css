@@ -1,0 +1,40 @@
+form{
+    display: block;
+    border-style: solid;
+    border-color: #5c5e66;
+    border-width: 5px;
+    background-color: #ffffff;
+}
+
+.ui-button-raised.ui-button-rounded:hover{
+    background-color: #5c5e66;
+    transition: 0.3s;
+}
+
+.bouton-submit{
+    margin: 30px;
+    background-color: #000 !important;
+    border-width: 0;
+    padding: 10px 5px 0px 5px;
+    /*border: 1px solid #007ad9;*/
+}
+
+.formulaire{
+    font-family: 'Poppins', sans-serif;
+    margin: 60px;
+    color: #5c5e66;
+}
+
+label{
+    display: block;
+    width: 200px;
+    float: left;
+}
+
+form, div{
+    margin: 30px;
+}
+
+a{
+    color: #5c5e66;
+}
