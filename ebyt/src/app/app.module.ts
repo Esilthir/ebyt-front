@@ -19,9 +19,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
+import {InputSwitchModule} from 'primeng/inputswitch';
 import { CommonModule } from '@angular/common';
 import { FicheConcertComponent } from './fiche-concert/fiche-concert.component';
 import {GalleriaModule} from 'primeng/galleria';
+import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
+import { ListConcertComponent } from './list-concert/list-concert.component';
 
 
 const routes: Routes = 
@@ -30,7 +33,10 @@ const routes: Routes =
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
   {path: '', component: HomeComponent},
-  {path: 'ficheConcert', component: FicheConcertComponent}
+  {path: 'ficheConcert', component: FicheConcertComponent},
+  {path: 'admin/concerts', component: ListeConcertAdminComponent},
+  {path: 'listConcert', component: ListConcertComponent},
+  {path: '', component: HomeComponent}
 ]; 
 
 
@@ -43,7 +49,9 @@ const routes: Routes =
     ConnexionComponent,
     HomeComponent,
     ConcertReactiveFormComponent,
-    FicheConcertComponent
+    FicheConcertComponent,
+    ListeConcertAdminComponent,
+    ListConcertComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,8 @@ const routes: Routes =
     SidebarModule,
     CommonModule,
     RouterModule.forRoot(routes),
-    GalleriaModule
+    GalleriaModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,41 @@
+form{
+    display: block;
+    border-style: solid;
+    border-color: #5c5e66;
+    border-width: 5px;
+    background-color: #ffffff;
+}
+
+button:hover{
+    background-color: #5c5e66;
+    transition: 0.3s;
+}
+
+button{
+    margin: 30px;
+    background-color: #23c8dd;
+    color: #FFF;
+    border-width: 0;
+    padding: 10px 10px 10px 10px;
+    /*border: 1px solid #007ad9;*/
+}
+
+.formulaire{
+    font-family: 'Poppins', sans-serif;
+    margin: 60px;
+    color: #5c5e66;
+}
+
+label{
+    display: block;
+    width: 200px;
+    float: left;
+}
+
+form, div{
+    margin: 30px;
+}
+
+a{
+    color: #5c5e66;
+}

@@ -16,7 +16,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		date: ['', Validators.required], 
 		genre: ['', Validators.required],
 		description: ['', Validators.required],
-		nbMaxPlace: ['', Validators.required],
+		nbMaxPlaces: ['', Validators.required],
 		price: ['', Validators.required],
 	});
 
@@ -39,7 +39,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 				date: c.date, 
 				genre: c.genre,
 				description: c.description,
-				nbMaxPlace: c.nbMaxPlace,
+				nbMaxPlaces: c.nbMaxPlaces,
 				price: c.price,
 			}); 
 			this.nbBoughtPlace = c.nbBoughtPlace});
@@ -49,7 +49,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 	onSubmit(){
 		if(this.add){
 			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.name, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
-				this.concertForm.value.nbMaxPlace, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
+				this.concertForm.value.nbMaxPlaces, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
 			this.serviceConcert.addConcert(c);
 		}
 		else{
@@ -60,7 +60,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 			concertUpdated.date = this.concertForm.value.date;
 			concertUpdated.genre = this.concertForm.value.genre;
 			concertUpdated.description = this.concertForm.value.description;
-			concertUpdated.nbMaxPlace = this.concertForm.value.nbMaxPlace;
+			concertUpdated.nbMaxPlaces = this.concertForm.value.nbMaxPlaces;
 			concertUpdated.price = this.concertForm.value.price;
 			concertUpdated.nbBoughtPlace = this.nbBoughtPlace;
 			this.serviceConcert.updateConcert(concertUpdated);
