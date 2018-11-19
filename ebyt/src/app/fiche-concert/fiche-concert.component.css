@@ -62,3 +62,57 @@ p{
 .pics{
     padding: 0 20% 0 20%;
 }
+
+div.prix-ajout p.prix-concert{
+    text-align: center;
+    width: 140px;
+    line-height: 120px;
+    font-size: 35px;
+    box-shadow: -3px 3px 10px #1c1c1c; 
+    color: white;
+}
+div.prix-ajout p.ajout-concert{
+    margin-top: 30px;
+    margin-left: 15px;
+    right: 25px;
+    text-align: center;
+    width: 60px;
+    line-height: 60px;
+    font-size: 100px;
+    color: #23c8dd;
+}
+
+.prix-ajout{
+    margin-top: 30px;
+}
+
+div.lieudate{
+    text-align: center;
+    width: 18%;
+    line-height: 50px;
+    font-size: 25px;
+    box-shadow: -3px 3px 10px #1c1c1c; 
+    font-weight: bold;
+    height: 80%;
+    margin-left: 100px;
+    color: white;
+    margin-top: 35px;
+    background-color: #1c1c1c;
+}
+
+p.lieudate{
+    text-align: center;
+}
+
+.lieu{
+color: white;
+}
+
+.lieudate.date{
+    color: #23c8dd;
+    font-size: 2em;
+}
+
+p.ajout{
+text-align: center;
+}
