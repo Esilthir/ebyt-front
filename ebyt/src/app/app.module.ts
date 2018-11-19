@@ -22,6 +22,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { CommonModule } from '@angular/common';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
+import { ListConcertComponent } from './list-concert/list-concert.component';
 
 
 const routes: Routes = 
@@ -31,6 +32,8 @@ const routes: Routes =
   {path: 'login', component: ConnexionComponent},
   {path: '', component: HomeComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent}
+  {path: 'listConcert', component: ListConcertComponent},
+  {path: '', component: HomeComponent}
 ]; 
 
 
@@ -43,7 +46,8 @@ const routes: Routes =
     ConnexionComponent,
     HomeComponent,
     ConcertReactiveFormComponent,
-    ListeConcertAdminComponent
+    ListeConcertAdminComponent,
+    ListConcertComponent
   ],
   imports: [
     BrowserModule,
