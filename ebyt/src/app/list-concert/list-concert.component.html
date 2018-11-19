@@ -1,9 +1,9 @@
 <div class="wrapper" >
   <div class="recherche-content"><h2>Recherche</h2></div>
 
-  <div class="concert-content ui-g">
+  <div class="concert-content ui-g" ngFor="concert of concerts">
     <div class="ui-g-1 musique">
-      <h4 class="style-musique" >Métal</h4>
+      <h4 class="style-musique" > {{ concert.genre }} </h4>
     </div>
     <img src="./assets/hellfest2.jpg" class="ui-g-4" alt="">
     <div class="ui-g-6 img-concert" >

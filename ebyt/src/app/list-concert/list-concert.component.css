@@ -10,6 +10,10 @@ div.recherche-content, div.concert-content{
 .img-concert{
     position: relative;
 }
+img{
+    width: 515px;
+    height: 322px;
+}
 
 h4.style-musique{
     transform: rotate(-90deg);
