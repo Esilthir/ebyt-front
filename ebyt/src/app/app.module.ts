@@ -35,8 +35,7 @@ const routes: Routes =
   {path: '', component: HomeComponent},
   {path: 'ficheConcert', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
-  {path: 'listConcert', component: ListConcertComponent},
-  {path: '', component: HomeComponent}
+  {path: 'listConcert', component: ListConcertComponent}
 ]; 
 
 
