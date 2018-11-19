@@ -12,18 +12,18 @@
 
 
 <div *ngFor="let concert of concerts">
-  <div class="listeConcertAdminDetail">
+  <div class="listeConcertAdminDetail" [ngClass]="{'inactiveConcert': !concert.active}">
 
-    <div class="ui-g-4"> <a href="#">{{concert.name}} - {{concert.artist}}</a> </div>
+    <div class="ui-g-4"> <a routerLink="../../ficheConcert/{{concert.id}}">{{concert.name}} - {{concert.artist}}</a> </div>
     <div class="ui-g-4">{{concert.date | date:"dd/MM/yyyy - hh'H'mm"}} à {{concert.place}}</div>
     <div class="ui-g-1">{{concert.nbMaxPlaces - concert.nbBoughtPlace}}</div>
     <div class="ui-g-3">
         <a routerLink="../../updateConcert/{{concert.id}}">
-          <button pButton class="ui-button-rounded buttonEdit">Modifier</button>
+          <button pButton [ngClass]="{'inactiveConcertButton': !concert.active}" class="ui-button-rounded buttonEdit">Modifier</button>
         </a>
-      <button pButton type="button" class="ui-button-danger ui-button-rounded buttonSuppr" (click)="deleteConcert(concert.id)">Supprimer</button>
+      <button pButton type="button" [ngClass]="{'inactiveConcertButton': !concert.active}" class="ui-button-rounded buttonSuppr" (click)="deleteConcert(concert.id)">Supprimer</button>
       <div class="buttonActive">
-        <p-inputSwitch [(ngModel)]="checked1"></p-inputSwitch>
+        <p-inputSwitch  [(ngModel)]="concert.active"></p-inputSwitch>
       </div> 
     </div>   
   </div>

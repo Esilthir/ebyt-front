@@ -37,4 +37,5 @@ export class ConcertService {
 	deleteConcert(id: number) {
 		this.http.delete(this.url + "/" + id, this.httpOptions).subscribe();
 	}
+	
 }

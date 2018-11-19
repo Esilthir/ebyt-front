@@ -16,7 +16,7 @@
 }
 
 .ui-button-rounded{
-    background-color: #23c8dd;
+    
 
 }
 
@@ -25,6 +25,7 @@
     height: 24px;
     padding: 0;
     margin-right: 2px;
+    background-color: #ed1216;
 }
 
 .buttonEdit {
@@ -32,6 +33,7 @@
     width: 70px;
     padding: 0;
     margin-right: 2px;
+    background-color: #23c8dd;
 }
 
 .buttonActive {
@@ -40,8 +42,11 @@
     display:inline;
 }
 
-hr {
-    color: red;
+.inactiveConcert >div{
+    background-color: #B7B7B7;
+}
 
+.inactiveConcertButton {
+    background-color: #B7B7B7;
 }
 
