@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MenuModule} from 'primeng/menu';
 import {SidebarModule} from 'primeng/sidebar';
 import { CommonModule } from '@angular/common';
+import { FicheConcertComponent } from './fiche-concert/fiche-concert.component';
+import {GalleriaModule} from 'primeng/galleria';
 
 
 const routes: Routes = 
@@ -27,7 +29,8 @@ const routes: Routes =
   {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'ficheConcert', component: FicheConcertComponent}
 ]; 
 
 
@@ -39,7 +42,8 @@ const routes: Routes =
     //CreationConcertComponent,
     ConnexionComponent,
     HomeComponent,
-    ConcertReactiveFormComponent
+    ConcertReactiveFormComponent,
+    FicheConcertComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ const routes: Routes =
     MenuModule,
     SidebarModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
