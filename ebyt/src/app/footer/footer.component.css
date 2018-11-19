@@ -1,12 +1,12 @@
 footer{
     background-color: #5c5e66;
-    position: fixed;
     bottom:0;
     width: 100%;
     padding: 30px;
     border-top-color: #23c8dd;
     border-top-width: 10px;
     border-top-style: solid;
+    margin-top: 20px;
 }
 
 a {
