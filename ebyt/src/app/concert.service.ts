@@ -37,5 +37,13 @@ export class ConcertService {
 	deleteConcert(id: number): Observable<any> {
 		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
+
+	getFameConcerts() : Observable<Array<Concert>>{
+		return this.http.get<Array<Concert>>(this.url + '/fame', this.httpOptions);
+	}
+
+	getLastConcerts() : Observable<Array<Concert>>{
+		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
+	}
 	
 }
