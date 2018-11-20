@@ -11,12 +11,16 @@ export class MenuComponent implements OnInit {
 
   role: string;
   authenticated: boolean;
+  lastname: string;
+  firstname: string;
 
   constructor(private userService: UserService) {
     userService.identifiant$.subscribe(() => {
       if (sessionStorage.getItem('username')){
         this.authenticated = true;
         this.role = sessionStorage.getItem('role');
+        this.firstname = sessionStorage.getItem('firstname');
+        this.lastname = sessionStorage.getItem('lastname');
       }
     })
    }
@@ -25,6 +29,8 @@ export class MenuComponent implements OnInit {
     this.role = sessionStorage.getItem('role');
     if(sessionStorage.getItem('username')) {
       this.authenticated = true;
+      this.firstname = sessionStorage.getItem('firstname');
+      this.lastname = sessionStorage.getItem('lastname');
     }
   }
 

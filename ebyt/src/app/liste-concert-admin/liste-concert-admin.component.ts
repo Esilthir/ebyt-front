@@ -20,10 +20,18 @@ export class ListeConcertAdminComponent implements OnInit {
   ngOnInit() {
     this.concertService.getConcerts().subscribe((listeConcert) => {
        this.concerts = listeConcert;
-    })}
+    })
+  }
 
   deleteConcert(id: number) {
-    this.concertService.deleteConcert(id);
+    this.concertService.deleteConcert(id).subscribe( () => {
+      alert("Le concert " + id + " a bien été supprimé");
+      this.ngOnInit();
+    });
+  }
+
+  updateActiveConcert(concert: Concert) {
+    this.concertService.updateConcert(concert);
   }
 
 

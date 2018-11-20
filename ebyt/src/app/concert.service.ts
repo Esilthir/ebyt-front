@@ -23,7 +23,7 @@ export class ConcertService {
 	}
 
 	updateConcert(concert : Concert){
-		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe();
 	}
 
 	getConcert(id : number) : Observable<Concert>{
@@ -34,8 +34,8 @@ export class ConcertService {
 		return this.http.get<Array<Concert>>(this.url + '/all', this.httpOptions);
 	}
 
-	deleteConcert(id: number) {
-		this.http.delete(this.url + "/" + id, this.httpOptions).subscribe();
+	deleteConcert(id: number): Observable<any> {
+		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
 	
 }

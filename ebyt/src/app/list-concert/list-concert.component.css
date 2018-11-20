@@ -1,7 +1,12 @@
+
 div.recherche-content, div.concert-content{
     border-bottom: 2px solid #1c1c1c; 
     position: relative;
     padding: 25px 0; 
+}
+div.recherche-content{
+    background-color: #5c5e66;
+    color: white;
 }
 
 .musique{
@@ -19,9 +24,16 @@ h4.style-musique{
     transform: rotate(-90deg);
     font-size: 24px;
     margin-top: 200%;
+    text-transform: uppercase;
 }
-div.concert-content div h3{
+div.concert-content div h3 a{
     font-size: 24px;
+    color: #1c1c1c;
+    transition: 0.3s;
+}
+div.concert-content div h3 a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
 }
 div.concert-content div h3, div.concert-content div p{
     margin-bottom: 10px;
@@ -51,8 +63,17 @@ div.prix-ajout p.ajout-concert{
 div.prix-ajout a {
     text-decoration: none;
     color: #23c8dd;
+    transition: 0.2s;
+}
+div.prix-ajout a:hover {
+    text-decoration: none;
+    color: #1c1c1c;
+    transition: 0.2s;
 }
 
 div.concert-content:last-child{
     border-bottom: 0;
+}
+strong {
+    color: #23c8dd;
 }
