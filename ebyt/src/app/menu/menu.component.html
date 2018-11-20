@@ -27,7 +27,9 @@
       <li><a href="#">Accueil</a></li>
       <li><a href="/listConcert">Concerts</a></li>
       <li> <input type="text" placeholder="Recherche"></li>
-      <li *ngIf="role === 'ROLE_ADMIN'"><a routerLink="/admin/concerts">Admin</a></li>
+
+      <li *ngIf="role === 'ROLE_ADMIN'"><p-splitButton label="Admin" [model]="items" styleClass="ui-button-secondary"></p-splitButton></li>
+    
     </ul>
   </div>
   <div>

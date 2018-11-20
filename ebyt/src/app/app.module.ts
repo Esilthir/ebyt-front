@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,7 @@ import { FicheConcertComponent } from './fiche-concert/fiche-concert.component';
 import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
-
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 const routes: Routes = 
 [
@@ -50,7 +51,8 @@ const routes: Routes =
     ConcertReactiveFormComponent,
     FicheConcertComponent,
     ListeConcertAdminComponent,
-    ListConcertComponent
+    ListConcertComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,10 @@ const routes: Routes =
     CommonModule,
     RouterModule.forRoot(routes),
     GalleriaModule,
-    InputSwitchModule
+    InputSwitchModule,
+    SplitButtonModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
