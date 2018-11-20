@@ -1,20 +1,16 @@
 <div class=wrapper>
-  
-  <iframe width="100%" height="550" src="https://www.youtube.com/embed/_LgA0LmBvFM?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  
+
+<iframe width="100%" height="550" [src]="safeVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- ?rel=0&amp;autoplay=1&mute=1 -->
   <div class="ui-g header imgs">
-    <div class="ui-g-3 infos lieudate"><p class="lieudate lieu"> Montpellier-Arena</p><p class="lieudate date">02/05/2019</p></div>
-    <div class="ui-g-6 infos"><h1 class="title">THE WORKS TOUR</h1><h2>Artiste(s) : Queen</h2></div>
-    <div class="ui-g-1 infos prix-ajout"><p class="prix-concert">17,50€</p></div>
+    <div class="ui-g-3 infos lieudate"><p class="lieudate lieu">{{concert.place}}</p><p class="lieudate date">{{concert.date | date:"dd/MM/yy"}}</p></div>
+    <div class="ui-g-6 infos"><h1 class="title">{{concert.name}}</h1><h2>Artiste(s) : {{concert.artist}}</h2></div>
+    <div class="ui-g-1 infos prix-ajout"><p class="prix-concert">{{concert.price}} €</p></div>
     <div class="ui-g-2 infos prix-ajout ajout"><a href=""><p class="ajout-concert">+</p></a></div>
   </div>
-  
   <div class="ui-g textblock">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ligula ac urna laoreet mollis. Aenean imperdiet neque ut ornare ullamcorper. Cras nisi arcu, iaculis sed nulla congue, efficitur vestibulum lectus. Mauris sodales velit ut orci efficitur posuere. Nulla aliquam lacus nec nulla aliquam euismod. Mauris pulvinar nisl purus, quis fringilla nulla pretium at. Fusce nec tincidunt nibh, eu faucibus nisi. In pharetra egestas leo, id mollis dolor molestie vel. Fusce rutrum diam at est mollis, vel volutpat mi ultrices. Nunc et feugiat nisl, in dapibus erat. Nulla condimentum, turpis vitae eleifend rhoncus, lacus justo rutrum lectus, a mollis nunc risus nec turpis. Nulla erat lorem, accumsan ut tincidunt lobortis, dignissim ut velit. Aliquam placerat mattis convallis. Cras vitae commodo neque, at venenatis urna. Nullam ornare bibendum dui. Proin pulvinar tincidunt mauris, quis elementum lectus.</p> 
-    
-    <p> Pellentesque aliquet erat sit amet pellentesque molestie. Pellentesque pharetra ultrices ante, a finibus odio tempus et. Morbi sagittis suscipit nisi ac semper. In hac habitasse platea dictumst. Mauris metus magna, imperdiet convallis massa finibus, vestibulum porta est. Donec suscipit, urna quis suscipit pretium, turpis mi malesuada lectus, id pharetra orci neque nec odio. Donec non ultricies dui. Ut laoreet purus et felis condimentum, tincidunt condimentum nisl gravida. Proin sit amet lectus eu quam sodales mattis. Donec sagittis, ipsum eget maximus porta, metus est dictum est, condimentum semper lorem elit nec leo. Aenean augue leo, pretium id nisi at, convallis molestie orci. Sed sit amet quam risus. Praesent suscipit vestibulum enim quis maximus.</p>
-    
-    <p> Quisque sed lacus et augue pulvinar suscipit ac eget turpis. Donec eget dignissim dui. Etiam fringilla metus et arcu lacinia, vel tincidunt dolor molestie. Ut placerat lectus sed sapien aliquam imperdiet. Vivamus sodales sem at tortor volutpat, quis blandit ex mattis. In nunc mi, malesuada nec porta sed, elementum id magna. Aenean ornare lacus in gravida porttitor. Duis sodales nisl leo, non aliquam tellus mattis eget. Mauris hendrerit eros sit amet tristique euismod. Integer accumsan condimentum libero, non porta arcu egestas vel.</p> 
+      <!-- <img src="{{concert.urlPic}}"> -->
+    <p>{{concert.description}}</p> 
   </div>
   
     

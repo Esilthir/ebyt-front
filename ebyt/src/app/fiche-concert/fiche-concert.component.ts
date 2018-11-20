@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Concert } from '../concert';
+import { ActivatedRoute } from '@angular/router';
+import { ConcertService } from '../concert.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-fiche-concert',
@@ -6,12 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fiche-concert.component.css']
 })
 export class FicheConcertComponent implements OnInit {
+  concert: Concert;
+  constructor(private route: ActivatedRoute, private service: ConcertService, private sanitizer: DomSanitizer) { 
+    this.concert = new Concert();
+  }
   
-  constructor() { }
-
   images: any[];
-    
-    ngOnInit() {}
+  safeVideoUrl: SafeResourceUrl;
+  
+  ngOnInit() {
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
+    this.service.getConcert(id).subscribe(c => {
+      this.concert = c;
+      this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.concert.urlVideo + "?rel=0&amp;autoplay=1&mute=1");
+    });
+  }
 }
 
 

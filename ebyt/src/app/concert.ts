@@ -9,8 +9,12 @@ export class Concert {
 	price: number;
 	nbBoughtPlace: number;
 	active: boolean;
+	urlPic: string;
+	urlPicRec: string;
+	urlVideo: string;
+	place: string;
 
-	constructor(artist?: string, name?: string, date?: string, genre?: string, description?: string, nbMaxPlaces?: number, price?: number, nbBoughtPlace?: number, active?: boolean){
+	constructor(artist?: string, name?: string, date?: string, genre?: string, description?: string, nbMaxPlaces?: number, price?: number, nbBoughtPlace?: number, active?: boolean, urlPic?: string, urlPicRec?: string, urlVideo?: string, place?: string){
 		this.artist = artist === undefined ? null : artist;
 		this.name = name === undefined ? null : name;
 		this.date = date === undefined ? null : date;
@@ -20,5 +24,9 @@ export class Concert {
 		this.price = price === undefined ? null : price;
 		this.nbBoughtPlace = nbBoughtPlace === undefined ? null : nbBoughtPlace;
 		this.active = active === undefined ? true : active;
+		this.urlPic = this.urlPic === undefined ? null : urlPic;
+		this.urlPicRec = this.urlPicRec === undefined ? null : urlPicRec;
+		this.urlVideo = this.urlVideo === undefined ? null : urlVideo;
+		this.place = this.place === undefined ? null : place;
 	}
 }

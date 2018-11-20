@@ -46,13 +46,14 @@ p{
 }
 
 .textblock{
-    padding: 5% 15% 5% 15%;
+    padding: 5% 20% 5% 20%;
+    display: inline-block;
 }
 
 p{
     padding: 1%;
     color: #1c1c1c;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .photo{
@@ -73,7 +74,7 @@ div.prix-ajout p.prix-concert{
 }
 div.prix-ajout p.ajout-concert{
     margin-top: 30px;
-    margin-left: 15px;
+    margin-left: 70px;
     right: 25px;
     text-align: center;
     width: 60px;
@@ -110,9 +111,18 @@ color: white;
 
 .lieudate.date{
     color: #23c8dd;
-    font-size: 2em;
+}
+
+.lieudate.lieu{
+    font-size: 1.2em;
 }
 
 p.ajout{
 text-align: center;
+}
+
+img{
+    width:  200px;
+    float: left;
+    margin-right: 40px;
 }
