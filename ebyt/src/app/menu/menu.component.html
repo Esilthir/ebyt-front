@@ -8,8 +8,8 @@
     <!-- <div class="remplacement"></div> -->
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1k1QoR3AwWiJPPThyenjWi5OzN9IVtzU7WmbAW8Zpljl-m0DD" alt="">
     <div>
-      <li><a href="">Nom </a> </li> 
-      <li><a href="">Prenom</a></li>
+      <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
+      <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
       <li><a href="">Mon Compte</a></li>
       <li>
       <img (click)="logout()" src="./assets/icons/deconnexion.png">
