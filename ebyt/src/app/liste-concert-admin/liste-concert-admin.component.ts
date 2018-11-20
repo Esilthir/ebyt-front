@@ -24,7 +24,14 @@ export class ListeConcertAdminComponent implements OnInit {
   }
 
   deleteConcert(id: number) {
-    this.concertService.deleteConcert(id);
+    this.concertService.deleteConcert(id).subscribe( () => {
+      alert("Le concert " + id + " a bien été supprimé");
+      this.ngOnInit();
+    });
+  }
+
+  updateActiveConcert(concert: Concert) {
+    this.concertService.updateConcert(concert);
   }
 
 

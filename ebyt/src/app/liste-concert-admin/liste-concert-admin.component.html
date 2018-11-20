@@ -23,7 +23,7 @@
         </a>
       <button pButton type="button" [ngClass]="{'inactiveConcertButton': !concert.active}" class="ui-button-rounded buttonSuppr" (click)="deleteConcert(concert.id)">Supprimer</button>
       <div class="buttonActive">
-        <p-inputSwitch  [(ngModel)]="concert.active"></p-inputSwitch>
+        <p-inputSwitch (click)="updateActiveConcert(concert)" [(ngModel)]="concert.active"></p-inputSwitch>
       </div> 
     </div>   
   </div>
