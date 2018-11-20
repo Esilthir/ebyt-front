@@ -57,8 +57,17 @@ div.prix-ajout p.ajout-concert{
 div.prix-ajout a {
     text-decoration: none;
     color: #23c8dd;
+    transition: 0.2s;
+}
+div.prix-ajout a:hover {
+    text-decoration: none;
+    color: #1c1c1c;
+    transition: 0.2s;
 }
 
 div.concert-content:last-child{
     border-bottom: 0;
+}
+strong {
+    color: #23c8dd;
 }
