@@ -11,7 +11,8 @@ export class ConcertService {
 
 	url = 'http://localhost:8070/concert';	
 	httpOptions = {
-		headers: new HttpHeaders({'Content-type': 'application/json'})
+		headers: new HttpHeaders({'Content-type': 'application/json'}),
+		reportProgress: true
 	};
 
 	constructor(private http: HttpClient, private router: Router) { }
