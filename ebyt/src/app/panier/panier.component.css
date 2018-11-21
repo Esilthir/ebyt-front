@@ -1,0 +1,43 @@
+.panier-element{
+    border-top: 2px solid #1c1c1c;
+    padding: 20px 0;
+}
+h1{
+    margin: 20px 0;
+}
+img{
+    float: left;
+    max-width: 515px;
+    margin-right: 10px;
+}
+.centre-button{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 60%;
+}
+.contenu div h3,.contenu div p{
+    margin-bottom: 5px;
+
+}
+h3 a{
+    font-size: 24px;
+    color: #1c1c1c;
+    transition: 0.3s;
+}
+h3 a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}
+strong {
+    color: #23c8dd;
+}
+.centre-price{
+    padding-top: 65px;
+}
+.price{
+    padding-top: 25%;
+    width: 85%;
+    background-color: red;
+    height: 70%;
+    margin: 0 auto;
+}

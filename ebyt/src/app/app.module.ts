@@ -28,6 +28,8 @@ import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { SafePipePipe } from './safe-pipe.pipe';
+import { PanierComponent } from './panier/panier.component';
+import {SpinnerModule} from 'primeng/spinner';
 
 
 const routes: Routes = 
@@ -38,7 +40,8 @@ const routes: Routes =
   {path: '', component: HomeComponent},
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
-  {path: 'listConcert', component: ListConcertComponent}
+  {path: 'listConcert', component: ListConcertComponent},
+  {path: 'panier', component: PanierComponent}
 ]; 
 
 
@@ -55,7 +58,9 @@ const routes: Routes =
     ListeConcertAdminComponent,
     ListConcertComponent,
     
-    SafePipePipe
+    SafePipePipe,
+    
+    PanierComponent
   ],
   imports: [
     BrowserModule,
@@ -73,8 +78,8 @@ const routes: Routes =
     GalleriaModule,
     InputSwitchModule,
     SplitButtonModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    SpinnerModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
