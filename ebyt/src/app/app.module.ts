@@ -27,8 +27,6 @@ import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
-import { SafePipePipe } from './safe-pipe.pipe';
-
 
 const routes: Routes = 
 [
@@ -55,7 +53,6 @@ const routes: Routes =
     ListeConcertAdminComponent,
     ListConcertComponent,
     
-    SafePipePipe
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ export class ListConcertComponent implements OnInit {
 
   concerts: Array<Concert> = new Array();
 
-  constructor( private concertService: ConcertService) { }
+  constructor( private concertService: ConcertService ) { }
 
   ngOnInit() {
     this.concertService.getConcerts().subscribe((listeConcert) => {
