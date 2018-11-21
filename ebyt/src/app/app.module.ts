@@ -31,6 +31,8 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import { SafePipePipe } from './safe-pipe.pipe';
 import {CalendarModule} from 'primeng/calendar';
 import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
+import { PanierComponent } from './panier/panier.component';
+import {SpinnerModule} from 'primeng/spinner';
 
 
 const routes: Routes = 
@@ -41,7 +43,8 @@ const routes: Routes =
   {path: '', component: HomeComponent},
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
-  {path: 'listConcert', component: ListConcertComponent}
+  {path: 'listConcert', component: ListConcertComponent},
+  {path: 'panier', component: PanierComponent}
 ]; 
 
 
@@ -58,7 +61,8 @@ const routes: Routes =
     ListeConcertAdminComponent,
     ListConcertComponent,
     SafePipePipe,
-    RechercheConcertComponent
+    RechercheConcertComponent,    
+    PanierComponent
   ],
   imports: [
     BrowserModule,
@@ -78,9 +82,8 @@ const routes: Routes =
     SplitButtonModule,
     BrowserAnimationsModule,
     SliderModule,
-    CalendarModule
-    
-    
+    CalendarModule,   
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
