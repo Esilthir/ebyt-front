@@ -26,6 +26,13 @@
     padding: 0;
     margin-right: 2px;
     background-color: #ed1216;
+    border : 0;
+    transition: 0.2s;
+}
+.buttonSuppr:hover {
+    background-color: #23c8dd !important;
+    border: 0;
+    transition: 0.2s;
 }
 
 .buttonEdit {

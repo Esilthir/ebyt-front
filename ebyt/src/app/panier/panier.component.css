@@ -11,13 +11,14 @@ img{
     margin-right: 10px;
 }
 .centre-button{
-    width: 70%;
-    margin: 0 auto;
-    padding-top: 60%;
+    padding-top: 35%;
+    text-align: center;
+}
+.contenu{
+    padding-left: 30px;
 }
 .contenu div h3,.contenu div p{
     margin-bottom: 5px;
-
 }
 h3 a{
     font-size: 24px;
@@ -32,12 +33,62 @@ strong {
     color: #23c8dd;
 }
 .centre-price{
-    padding-top: 65px;
+    padding-top: 5%;  
 }
 .price{
-    padding-top: 25%;
-    width: 85%;
-    background-color: red;
-    height: 70%;
+    text-align: center;
     margin: 0 auto;
+    box-shadow: 0px 0px 5px #1c1c1c;
+    padding: 40px;
+}
+.price p{
+    padding: 0;
+    font-size: 24px;
+}
+.price p span{
+    font-size: 42px;
+}
+.buttonSuppr {
+    width: 100px;
+    height: 24px;
+    padding: 0;
+    margin-right: 2px;
+    background-color: #ed1216;
+    border: 0;
+    transition: 0.2s;
+    float: right;
+    cursor: pointer;
+    border-radius: 18px;
+    margin-top: 24%;
+}
+.buttonSuppr:hover {
+    background-color: #23c8dd !important;
+    border: 0;
+    transition: 0.2s;
+}
+#nb_places{
+    width: 40px;
+    font-size: 42px;
+    background-color: transparent;
+    text-align: center;
+    margin: 10px 0;
+}
+
+button.destion-nb-place{
+    width: 50px;
+    line-height: 30px;
+    font-size: 32px;
+    background-color: transparent;
+    color: #1c1c1c;
+    border: 2px solid #23c8dd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button.destion-nb-place:hover{
+    color: #23c8dd;
+    transition: 0.2s;
+}
+.centre-nb-place{
+    float: left;
+    margin-left: 20px;
 }
