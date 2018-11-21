@@ -11,18 +11,19 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class FicheConcertComponent implements OnInit {
   concert: Concert;
-  constructor(private route: ActivatedRoute, private service: ConcertService, private sanitizer: DomSanitizer) { 
+  constructor(private route: ActivatedRoute, private service: ConcertService) { 
     this.concert = new Concert();
   }
   
   images: any[];
   safeVideoUrl: SafeResourceUrl;
+  safePicUrl: SafeResourceUrl;
   
   ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
     this.service.getConcert(id).subscribe(c => {
       this.concert = c;
-      this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.concert.urlVideo + "?rel=0&amp;autoplay=1&mute=1");
+      this.concert.urlVideo += "?rel=0&amp;autoplay=1&mute=1";
     });
   }
 }

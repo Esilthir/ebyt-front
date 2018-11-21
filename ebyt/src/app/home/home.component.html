@@ -1,24 +1,15 @@
-<div class=home><h1 class="header">La sélection de <span class="title">EBYT</span> :</h1>
-  
-  <div class="ui-g header imgs">
-    <div class="ui-g-3 photo"><img src="./assets/queen.png/"><div class="hoverimage"><p>12/12/2018</p><p>Montpellier</p></div><p class=artist>Queen</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/prince.png/"><div class="hoverimage"><p>05/04/2019</p><p>Paris</p></div><p class=artist>Prince</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/partenaire_particulier.png/"><div class="hoverimage"><p>30/01/2019</p><p>Lyon</p></div><p class=artist>Partenaire particulier</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/beatles.png/"><div class="hoverimage"><p>10/07/2019</p><p>Lille</p></div><p class=artist>The Beatles</p></div>
+<div class=home><h1 class="header fond-fame-concert">La sélection de <span class="title">EBYT</span> :</h1>
+  <div class="ui-g fond-fame-concert" >
+    <div class="ui-g-3 header imgs" *ngFor="let concert of fameConcerts">
+      <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" [src]="concert.urlPic | safePipe"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
+    </div>
   </div>
-  
-  <h1>Les derniers concerts :</h1>
-  
-  <div class="ui-g other imgs">
-    <div class="ui-g-3 photo"><img src="./assets/celine_dion.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Céline Dion</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/callas.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Maria Callas</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/metallica.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Metallica</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/cat_stevens.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Cat Stevens</p></div>
-  </div>
-  <div class="ui-g other imgs">
-    <div class="ui-g-3 photo"><img src="./assets/destinyschild.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Destiny's child</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/zimmer.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Hans Zimmer</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/docgyneco.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Doc Gyneco</p></div>
-    <div class="ui-g-3 photo"><img src="./assets/raycharles.png/"><div class="hoverimage"><p>22/05/2019</p><p>Toulouse</p></div><p class=artist>Ray Charles</p></div>
+</div>
+
+<h1>Les derniers concerts :</h1>
+
+<div class="ui-g lastconcerts">
+  <div class="ui-g-3 other imgs" *ngFor="let concert of lastConcerts">
+    <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" [src]="concert.urlPic | safePipe"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
   </div>
 </div>
