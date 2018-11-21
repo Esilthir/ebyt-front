@@ -9,9 +9,13 @@ import { ConcertService } from '../concert.service';
 })
 export class ListConcertComponent implements OnInit {
 
+  rechercheAvancee: boolean
+
   concerts: Array<Concert> = new Array();
 
-  constructor( private concertService: ConcertService ) { }
+  constructor( private concertService: ConcertService ) {
+    this.rechercheAvancee = false;
+   }
 
   ngOnInit() {
     this.concertService.getConcerts().subscribe((listeConcert) => {

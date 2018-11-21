@@ -13,6 +13,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './home/home.component';
+import {SliderModule} from 'primeng/slider';
 
 import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
 import { RouterModule, Routes, Router} from '@angular/router';
@@ -27,6 +28,10 @@ import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import { SafePipePipe } from './safe-pipe.pipe';
+import {CalendarModule} from 'primeng/calendar';
+import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
+
 
 const routes: Routes = 
 [
@@ -52,7 +57,8 @@ const routes: Routes =
     FicheConcertComponent,
     ListeConcertAdminComponent,
     ListConcertComponent,
-    
+    SafePipePipe,
+    RechercheConcertComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,10 @@ const routes: Routes =
     GalleriaModule,
     InputSwitchModule,
     SplitButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SliderModule,
+    CalendarModule
+    
     
   ],
   providers: [],
