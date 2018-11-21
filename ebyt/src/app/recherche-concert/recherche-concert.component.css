@@ -1,0 +1,36 @@
+
+.ui-float-label>label {
+    left: 4.5em;
+    color: black;
+}
+
+.rechercheAvancee {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.ui-button-rounded{
+    background-color: #23c8dd;
+}
+
+a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}
+
+.pricePicker {
+    width:12em;
+    margin: auto;
+}
+
+.montPicker {
+    width: 12em;
+    margin: auto;
+}
+
+.btn-valid {
+    position: relative;
+    bottom: -15px;
+}
+

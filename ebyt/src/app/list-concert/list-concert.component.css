@@ -77,3 +77,13 @@ div.concert-content:last-child{
 strong {
     color: #23c8dd;
 }
+
+
+.ui-button-rounded{
+    background-color: #23c8dd;
+}
+
+a:hover{
+    color: #23c8dd;
+    transition: 0.3s;
+}

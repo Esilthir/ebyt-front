@@ -10,9 +10,13 @@ import { PanierServiceService } from '../panier-service.service';
 })
 export class ListConcertComponent implements OnInit {
 
+  rechercheAvancee: boolean
+
   concerts: Array<Concert> = new Array();
 
-  constructor( private concertService: ConcertService, private panierService: PanierServiceService ) { }
+  constructor( private concertService: ConcertService, private panierService: PanierServiceService ) {
+    this.rechercheAvancee = false;
+   }
 
   ngOnInit() {
     this.concertService.getConcerts().subscribe((listeConcert) => {
