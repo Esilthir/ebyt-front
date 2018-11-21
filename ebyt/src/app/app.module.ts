@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-//import { CreationConcertComponent } from './creation-concert/creation-concert.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -32,6 +31,7 @@ import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
 
 
+
 const routes: Routes = 
 [
   {path: 'addConcert', component: ConcertReactiveFormComponent},
@@ -50,7 +50,6 @@ const routes: Routes =
     AppComponent,
     MenuComponent,
     FooterComponent,
-    //CreationConcertComponent,
     ConnexionComponent,
     HomeComponent,
     ConcertReactiveFormComponent,

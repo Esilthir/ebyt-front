@@ -92,3 +92,13 @@ img{
     transition: 0.2s;
     font-size: 1.5em;
 }
+
+.lastconcerts{
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.fame-concert{
+    padding-right: 5%;
+    padding-left: 5%;
+}

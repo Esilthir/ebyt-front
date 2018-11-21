@@ -1,47 +1,71 @@
 <nav>
-  <div>
+  
+  <!-- Titre -->
+  
+  <div class= "titre">
     <a href="#"><h1 class="title">EBYT</h1></a>
     <p>Every Beat You Take</p>
   </div>
-
+  <div class="barre"></div>
+  
+  <!-- Authentification -->
+  
   <div  *ngIf="authenticated">
     <!-- <div class="remplacement"></div> -->
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1k1QoR3AwWiJPPThyenjWi5OzN9IVtzU7WmbAW8Zpljl-m0DD" alt="">
+    <img src="./assets/icons/robot.png" alt="">
     <div>
       <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
       <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
       <li><a href="">Mon Compte</a></li>
       <li>
-      <img (click)="logout()" src="./assets/icons/deconnexion.png">
-    </li> 
-        
+        <img (click)="logout()" src="./assets/icons/deconnexion.png">
+      </li> 
+      
     </div>
   </div>
-
-    <div *ngIf="!authenticated">
-        <a routerLink="/login">Se connecter</a>
-    </div>
-
+  
+  <div *ngIf="!authenticated">
+    <a routerLink="/login">Se connecter</a>
+  </div>
+  
+  <div class="barre"></div>
+  
+  <!-- Navigation -->
+  
   <div>
     <ul>
       <li><a href="#">Accueil</a></li>
       <li><a href="/listConcert">Concerts</a></li>
-      <li> <input type="text" placeholder="Recherche"></li>
-
       <li *ngIf="role === 'ROLE_ADMIN'"><p-splitButton label="Admin" [model]="items" styleClass="ui-button-secondary"></p-splitButton></li>
+    </ul>
+  </div>
+  
+  <div class="barre"></div>
+  
+  <!-- Panier -->
+  
+  <div class="panier">
+    <div class="icon" (click)="afficherPanier = !afficherPanier">
+      <img src="./assets/icons/panier.png">
+      <p class="prixpanier">200€</p>
+    </div>
+    <div class="prix" (click)="afficherPanier = !afficherPanier">
+      <h3>Panier</h3>
+    </div>
+    <ul *ngIf= "afficherPanier ui-g" class="afficherPanier">
+      <li class="ui-g-3">
+       25€ <span class="boldblue">x2</span>
+      </li>
+      <a href=""><li class="ui-g-6">
+        Hellfest
+      </li></a>
+      <li class="ui-g-3">
+          <span class="bold">50€</span>
+      </li>
+    </ul>
+    <div *ngIf= "afficherPanier" class="total afficherPanier" ><a href="">TOTAL 100€</a></div>
     
-    </ul>
+    <a href="panier"><button *ngIf= "afficherPanier" class="afficherPanier"><h3>Accéder au panier</h3></button></a>
   </div>
-  <div>
-    <img src="./assets/icons/panier.png">
-    <p>PRIX</p>
-    <ul>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-      <li><a href="">Hellfest <span>50€</span></a></li>
-    </ul>
-  </div>
+  
 </nav>

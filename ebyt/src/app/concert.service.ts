@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Concert } from './concert';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { PanierComponent } from './panier/panier.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +48,4 @@ export class ConcertService {
 	getLastConcerts() : Observable<Array<Concert>>{
 		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
 	}
-	
 }
