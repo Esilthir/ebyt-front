@@ -47,11 +47,13 @@ export class ConcertService {
 		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
 	}
 
-	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number ) : Observable<Array<Concert>> {
+	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean ) : Observable<Array<Concert>> {
+		
 		let optionsParams = 
 		{ 	params: new HttpParams(),
 			headers: new HttpHeaders({'Content-type': 'application/json'}),
-			reportProgress: true
+			reportProgress: true,
+
 		};
 		if (name) {
 			optionsParams.params = optionsParams.params.set('name', name);
@@ -60,7 +62,7 @@ export class ConcertService {
 			optionsParams.params = optionsParams.params.set('artist',artist);
 		}
 		if (date) {
-			optionsParams.params = optionsParams.params.set('date', date.toString());
+			optionsParams.params = optionsParams.params.set('date', date.toLocaleDateString());
 		}
 		if (place) {
 		  optionsParams.params = optionsParams.params.append('place', place);
@@ -68,8 +70,15 @@ export class ConcertService {
 		if (priceMax < 200) {
 			optionsParams.params = optionsParams.params.set('priceMax', priceMax.toString());
 		}
+		if (active) {
+			optionsParams.params = optionsParams.params.set('active', active.toString());
+		}
+		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
+			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
+		} else {
+			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
+		}
 
-		return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 
 	}
 	

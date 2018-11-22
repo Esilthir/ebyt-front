@@ -18,7 +18,7 @@ export class ListeConcertAdminComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.concertService.getConcerts().subscribe((listeConcert) => {
+    this.concertService.search().subscribe((listeConcert) => {
        this.concerts = listeConcert;
     })
   }

@@ -14,11 +14,11 @@ export class ListConcertComponent implements OnInit {
   concerts: Array<Concert> = new Array();
 
   constructor( private concertService: ConcertService ) {
-    this.rechercheAvancee = false;
+
    }
 
   ngOnInit() {
-    this.concertService.getConcerts().subscribe((listeConcert) => {
+    this.concertService.search().subscribe((listeConcert) => {
       this.concerts = listeConcert;
    })
   }
