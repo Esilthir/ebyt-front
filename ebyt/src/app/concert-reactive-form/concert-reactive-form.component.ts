@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConcertService } from '../concert.service';
 import { Concert } from '../concert';
+import {FileUploadModule} from 'primeng/fileupload';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-concert-reactive-form',
@@ -18,11 +20,18 @@ export class ConcertReactiveFormComponent implements OnInit {
 		description: ['', Validators.required],
 		nbMaxPlaces: ['', Validators.required],
 		price: ['', Validators.required],
+		urlPic: [''],
+		urlPicRec: [''],
+		urlVideo: [''],
+		place: ['', Validators.required]
 	});
 
 	add: boolean;
 	id: number;
 	nbBoughtPlace: number;
+	active: boolean;
+	selectedPic: File = null;
+	selectedPicRec: File = null;
 
   constructor(private fb: FormBuilder, private serviceConcert: ConcertService, private router: Router, private routeActive: ActivatedRoute) {}
 
@@ -41,29 +50,59 @@ export class ConcertReactiveFormComponent implements OnInit {
 				description: c.description,
 				nbMaxPlaces: c.nbMaxPlaces,
 				price: c.price,
+				urlVideo: c.urlVideo
 			}); 
-			this.nbBoughtPlace = c.nbBoughtPlace});
+			this.nbBoughtPlace = c.nbBoughtPlace,
+			this.active = c.active});
 		}
 	}
 
+	onPicRecSelected(event){
+		this.selectedPicRec = <File>event.target.files[0];
+	}
+
+	onPicSelected(event){
+		this.selectedPic = <File>event.target.files[0];
+	}
+
 	onSubmit(){
-		if(this.add){
-			let c: Concert = new Concert(this.concertForm.value.artist, this.concertForm.value.name, this.concertForm.value.date, this.concertForm.value.genre, this.concertForm.value.description, 
-				this.concertForm.value.nbMaxPlaces, this.concertForm.value.price, this.concertForm.value.nbBoughtPlace);
-			this.serviceConcert.addConcert(c);
+		let concert: Concert = new Concert();
+		let fd = new FormData();
+		let fdIsEmpty: boolean = true;
+		concert.artist = this.concertForm.value.artist;
+		concert.name = this.concertForm.value.artist;
+		concert.date = this.concertForm.value.date;
+		concert.genre = this.concertForm.value.genre;
+		concert.description = this.concertForm.value.description;
+		concert.nbMaxPlaces = this.concertForm.value.nbMaxPlaces;
+		concert.price = this.concertForm.value.price;
+		concert.nbBoughtPlace = this.nbBoughtPlace;
+		concert.active = this.active;
+		concert.place = this.concertForm.value.place;
+		if(this.concertForm.value.urlVideo === ""){
+			concert.urlVideo = "https://www.youtube.com/embed/gah8KMbsj40";
 		}
 		else{
-			let concertUpdated = new Concert();
-			concertUpdated.id = this.id;
-			concertUpdated.artist = this.concertForm.value.artist;
-			concertUpdated.name = this.concertForm.value.artist;
-			concertUpdated.date = this.concertForm.value.date;
-			concertUpdated.genre = this.concertForm.value.genre;
-			concertUpdated.description = this.concertForm.value.description;
-			concertUpdated.nbMaxPlaces = this.concertForm.value.nbMaxPlaces;
-			concertUpdated.price = this.concertForm.value.price;
-			concertUpdated.nbBoughtPlace = this.nbBoughtPlace;
-			this.serviceConcert.updateConcert(concertUpdated);
+			concert.urlVideo = this.concertForm.value.urlVideo;
+		}
+		if(this.concertForm.value.urlPic !== ""){
+			fd.append("Carre", this.selectedPic);
+			fdIsEmpty = false;
+		}
+		if(this.concertForm.value.urlPicRec !== ""){
+			fd.append("Rectangle", this.selectedPicRec);
+			fdIsEmpty = false;
+		}
+		
+		if(!fdIsEmpty){
+			this.serviceConcert.addImage(fd);
+		}
+		if(this.add){
+			this.serviceConcert.addConcert(concert);
+		}
+		else{
+			concert.id = this.id;
+			this.serviceConcert.updateConcert(concert);
 		}
 	}
 }

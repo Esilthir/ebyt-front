@@ -1,32 +1,41 @@
-
 <div class="formulaire">
 	<h1 *ngIf="add">Entrer un nouveau concert</h1>
 	<h1 *ngIf="!add">Mettre à jour le concert</h1>
 	<form [formGroup]='concertForm' (ngSubmit) = 'onSubmit()'>
 		<div>
-			<label for="artist">Artiste :</label><input pInputText type='text' id='artist' name='artist' formControlName='artist'/>
+			<label for="artist">Artiste(s) :</label><input pInputText type='text' id='artist' name='artist' formControlName='artist' placeholder="Brassens, Renaud" />
 		</div>
 		<div>
 			<label for="name">Nom :</label><input pInputText type='text' id='name' name='name' formControlName='name'/>
 		</div>
 		<div>
-			<label for="date">Date :</label><input pInputText type='text' id='date' name='date' formControlName='date'/>
+			<label for="date">Date :</label><input pInputText type='date' id='date' name='date' formControlName='date'/>
 		</div>
 		<div>
 			<label for="genre">Genre :</label><input pInputText type='text' id='genre' name='genre' formControlName='genre'/>
 		</div>
 		<div>
-			<label for="description">Description :</label><input pInputText type='text' id='description' name='description' formControlName='description'/>
+			<label for="place">Adresse :</label><input pInputText type='text' id='place' name='place' formControlName='place'/>
 		</div>
 		<div>
-			<label for="nbMaxPlace">Nombre de place max :</label><input pInputText type='text' id='nbMaxPlace' name='nbMaxPlace' formControlName='nbMaxPlace'/>
+			<label for="description">Description :</label><textarea id='description' name='description' formControlName='description'></textarea>
 		</div>
 		<div>
-			<label for="price">Prix :</label><input pInputText type='text' id='price' name='price' formControlName='price'/>
+			<label for="nbMaxPlaces">Nombre de place max :</label><input pInputText type='number' id='nbMaxPlaces' name='nbMaxPlaces' formControlName='nbMaxPlaces'/>
 		</div>
-
-		<br/>
 		<div>
+			<label for="price">Prix :</label><input pInputText type='number' id='price' name='price' formControlName='price' step="0.01" />
+		</div>
+		<div>
+			<label for="urlPicRec">Image rectangle:</label><input pInputText type='file' (change)="onPicRecSelected($event)" id='urlPicRec' name='urlPicRec' accept=".jpg, .jpeg, .png" formControlName='urlPicRec'/>
+		</div>
+		<div>
+			<label for="urlPic">Image carré:</label><input pInputText type='file' (change)="onPicSelected($event)" id='urlPic' name='urlPic' accept=".jpg, .jpeg, .png" formControlName='urlPic'/>
+		</div>
+		<div>
+			<label for="urlVideo">URL Youtube vidéo:</label><input pInputText type='text' id='urlVideo' name='urlVideo' formControlName='urlVideo'/>
+		</div>
+		<div class=bouton>
 			<button type='submit' [disabled]='!concertForm.valid'>Enregister</button>			
 		</div>
 	</form>

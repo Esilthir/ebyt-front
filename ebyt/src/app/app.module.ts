@@ -27,6 +27,10 @@ import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import { FileSelectDirective } from 'ng2-file-upload';
+import {FileUploadModule} from 'primeng/fileupload';
+
+
 
 const routes: Routes = 
 [
@@ -52,7 +56,7 @@ const routes: Routes =
     FicheConcertComponent,
     ListeConcertAdminComponent,
     ListConcertComponent,
-    
+    FileSelectDirective,
   ],
   imports: [
     BrowserModule,
@@ -70,8 +74,8 @@ const routes: Routes =
     GalleriaModule,
     InputSwitchModule,
     SplitButtonModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    FileUploadModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -38,5 +38,9 @@ export class ConcertService {
 	deleteConcert(id: number): Observable<any> {
 		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
+
+	addImage(formData: FormData){
+		this.http.post(this.url + '/addImage', formData, this.httpOptions);
+	}
 	
 }
