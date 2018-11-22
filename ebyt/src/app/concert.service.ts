@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Concert } from './concert';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { PanierComponent } from './panier/panier.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,9 +40,39 @@ export class ConcertService {
 	deleteConcert(id: number): Observable<any> {
 		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
-
 	addImage(formData: FormData){
 		this.http.post(this.url + '/addImage', formData, this.httpOptions);
 	}
-	
+	getFameConcerts() : Observable<Array<Concert>>{
+		return this.http.get<Array<Concert>>(this.url + '/fame', this.httpOptions);
+	}
+
+	getLastConcerts() : Observable<Array<Concert>>{
+		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
+	}
+
+	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number ) : Observable<Array<Concert>> {
+		let optionsParams = 
+		{ 	params: new HttpParams(),
+			headers: new HttpHeaders({'Content-type': 'application/json'}),
+			reportProgress: true
+		};
+		if (name) {
+			optionsParams.params = optionsParams.params.set('name', name);
+		}
+		if (artist) {
+			optionsParams.params = optionsParams.params.set('artist',artist);
+		}
+		if (date) {
+			optionsParams.params = optionsParams.params.set('date', date.toString());
+		}
+		if (place) {
+		  optionsParams.params = optionsParams.params.append('place', place);
+		}
+		if (priceMax < 200) {
+			optionsParams.params = optionsParams.params.set('priceMax', priceMax.toString());
+		}
+
+		return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
+	}
 }

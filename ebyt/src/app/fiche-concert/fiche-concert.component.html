@@ -1,6 +1,6 @@
 <div class=wrapper>
 
-<iframe width="100%" height="550" [src]="safeVideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="550" [src]="concert.urlVideo | safePipe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <!-- ?rel=0&amp;autoplay=1&mute=1 -->
   <div class="ui-g header imgs">
     <div class="ui-g-3 infos lieudate"><p class="lieudate lieu">{{concert.place}}</p><p class="lieudate date">{{concert.date | date:"dd/MM/yy"}}</p></div>
@@ -9,7 +9,7 @@
     <div class="ui-g-2 infos prix-ajout ajout"><a href=""><p class="ajout-concert">+</p></a></div>
   </div>
   <div class="ui-g textblock">
-      <!-- <img src="{{concert.urlPic}}"> -->
+      <img [src]="concert.urlPic | safePipe">
     <p>{{concert.description}}</p> 
   </div>
   

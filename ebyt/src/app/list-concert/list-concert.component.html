@@ -1,20 +1,34 @@
-<div class="wrapper" >
-  <div class="recherche-content"><h2>Recherche</h2></div>
+<div class="wrapper">
+  <div class="recherche-content">
+    <h2>Liste des concerts</h2>
+
+    
+
+    <app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
+
+  </div>
 
   <div class="concert-content ui-g" *ngFor="let concert of concerts">
     <div class="ui-g-1 musique">
-      <h4 class="style-musique" > {{concert.genre}} </h4>
+      <h4 class="style-musique"> {{concert.genre}} </h4>
     </div>
     <a routerLink="../ficheConcert/{{concert.id}}"><img src="./assets/hellfest2.jpg" class="ui-g-4" alt=""></a>
-    <div class="ui-g-6 img-concert" >
+    <div class="ui-g-6 img-concert">
       <h3> <a routerLink="../ficheConcert/{{concert.id}}">{{concert.name}}</a></h3>
-      <p class="artiste-concert" >{{concert.artist}}</p>
+      <p class="artiste-concert">{{concert.artist}}</p>
       <p class="date-concert"><strong>{{ concert.place }} {{concert.date | date:"dd/MM/yyyy - hh'H'mm"}}</strong> </p>
-      <p class="description-concert" >{{concert.description }}</p>
-      <p class="place-concert">place disponible : <strong>{{concert.nbMaxPlaces - concert.nbBoughtPlace}}/{{concert.nbMaxPlaces}}</strong> </p>
+      <p class="description-concert">{{concert.description }}</p>
+      <p class="place-concert">place disponible : <strong>{{concert.nbMaxPlaces -
+          concert.nbBoughtPlace}}/{{concert.nbMaxPlaces}}</strong> </p>
+    </div>
+    <div class="ui-g-1 prix-ajout">
+      <p class="prix-concert"> {{concert.price}}€</p>
+      <a href="">
+        <p class="ajout-concert">+</p>
+      </a>
     </div>
     <div class="ui-g-1 prix-ajout" >
         <p class="prix-concert"> {{concert.price}}€</p>
-        <a href=""><p class="ajout-concert">+</p></a>
+        <a (click)="addPanier(concert)"><p class="ajout-concert">+</p></a>
       </div>
   </div>

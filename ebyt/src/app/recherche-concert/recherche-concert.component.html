@@ -1,0 +1,34 @@
+<div class="rechercheAvancee">
+  <div class="ui-g">
+    <div class="ui-g-2">
+      <label for="genre">Nom du concert</label>
+        <input id="genre" type="text" size="30" pInputText [(ngModel)]="name" (keyup.enter)="search()">
+    </div>
+
+    <div class="ui-g-2">
+      <label for="genre">Artiste</label>
+        <input id="genre" type="text" size="30" pInputText [(ngModel)]="artist" (keyup.enter)="search()">
+    </div>
+
+    <div class="ui-g-2">
+      <label for="genre">Ville</label>
+        <input id="genre" type="text" size="30" pInputText [(ngModel)]="place" (keyup.enter)="search()">
+    </div>
+    <div class="ui-g-2">
+      <div class="pricePicker">
+      <label for="priceMax">Prix max</label>
+      <input id="priceMax" type="text" pInputText [(ngModel)]="priceMax" style="width:14em" (keyup.enter)="search()"/>
+      <p-slider [(ngModel)]="priceMax" [min]="0" [max]="200" [style]="{'width':'14em'}"></p-slider>
+    </div>
+    </div>
+    <div class="ui-g-2">
+      <div class="montPicker">
+              <label for="date">Date</label>
+      <p-calendar id="date" [(ngModel)]="date" view="month" dateFormat="mm/yy" [yearNavigator]="true" yearRange="2000:2030"></p-calendar>
+      </div>
+    </div>
+    <div class="ui-g-2">
+        <button pButton class="ui-button-rounded btn-valid" type="submit" label="Lancer la recherche" (click)="search()" ></button>
+    </div>
+  </div>
+</div>
