@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   lastname: string;
   firstname: string;
   items:MenuItem[];
-
+  afficherPanier:boolean;
   
 
   constructor(private userService: UserService) {
@@ -34,6 +34,7 @@ export class MenuComponent implements OnInit {
       this.authenticated = true;
       this.firstname = sessionStorage.getItem('firstname');
       this.lastname = sessionStorage.getItem('lastname');
+      this.afficherPanier = false;
     }
     this.items = [
       {label: 'Concerts', routerLink: ['/admin/concerts']

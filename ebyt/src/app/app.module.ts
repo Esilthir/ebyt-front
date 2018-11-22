@@ -8,11 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-//import { CreationConcertComponent } from './creation-concert/creation-concert.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './home/home.component';
+import {SliderModule} from 'primeng/slider';
 
 import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
 import { RouterModule, Routes, Router} from '@angular/router';
@@ -27,9 +27,17 @@ import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+<<<<<<< HEAD
+import { FileSelectDirective } from 'ng2-file-upload';
+import {FileUploadModule} from 'primeng/fileupload';
+=======
 import { SafePipePipe } from './safe-pipe.pipe';
+import {CalendarModule} from 'primeng/calendar';
+import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
 import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
+>>>>>>> 8f16e99a86f4983a968682cdd417640e21550b38
+
 
 
 const routes: Routes = 
@@ -50,16 +58,15 @@ const routes: Routes =
     AppComponent,
     MenuComponent,
     FooterComponent,
-    //CreationConcertComponent,
     ConnexionComponent,
     HomeComponent,
     ConcertReactiveFormComponent,
     FicheConcertComponent,
     ListeConcertAdminComponent,
     ListConcertComponent,
-    
+    FileSelectDirective,
     SafePipePipe,
-    
+    RechercheConcertComponent,    
     PanierComponent
   ],
   imports: [
@@ -79,7 +86,10 @@ const routes: Routes =
     InputSwitchModule,
     SplitButtonModule,
     BrowserAnimationsModule,
-    SpinnerModule    
+    FileUploadModule,
+    SliderModule,
+    CalendarModule,   
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

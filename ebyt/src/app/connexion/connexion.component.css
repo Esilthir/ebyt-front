@@ -41,3 +41,7 @@ input .formComponent{
 a{
     color: #5c5e66;
 }
+
+.ui-button-rounded{
+    background-color: #23c8dd;
+}

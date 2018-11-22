@@ -1,5 +1,5 @@
 form{
-    display: block;
+    margin-top: 80px;
     border-style: solid;
     border-color: #5c5e66;
     border-width: 5px;
@@ -12,12 +12,13 @@ button:hover{
 }
 
 button{
-    margin: 30px;
     background-color: #23c8dd;
     color: #FFF;
     border-width: 0;
     padding: 10px 10px 10px 10px;
-    /*border: 1px solid #007ad9;*/
+    margin-top: 30px;
+    border-radius: 25px;
+    text-align: center;
 }
 
 .formulaire{
@@ -26,16 +27,32 @@ button{
     color: #5c5e66;
 }
 
-label{
-    display: block;
-    width: 200px;
-    float: left;
-}
-
-form, div{
-    margin: 30px;
-}
-
 a{
     color: #5c5e66;
+}
+
+form > div{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+label{
+    text-align: left;
+    display: block;
+}
+
+form > div > input{
+    width: 100%;
+    vertical-align: center;
+}
+
+form > div > textarea{
+    width: 100%;
+    border: 1px solid #a6a6a6;;
+}
+
+form > div.bouton{
+    margin: 0px auto 20px auto;
 }
