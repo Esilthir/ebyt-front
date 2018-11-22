@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
-//import { CreationConcertComponent } from './creation-concert/creation-concert.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -28,11 +27,13 @@ import {GalleriaModule} from 'primeng/galleria';
 import { ListeConcertAdminComponent } from './liste-concert-admin/liste-concert-admin.component';
 import { ListConcertComponent } from './list-concert/list-concert.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {FileUploadModule} from 'primeng/fileupload';
 import { SafePipePipe } from './safe-pipe.pipe';
 import {CalendarModule} from 'primeng/calendar';
 import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
 import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
+
 
 
 const routes: Routes = 
@@ -53,7 +54,6 @@ const routes: Routes =
     AppComponent,
     MenuComponent,
     FooterComponent,
-    //CreationConcertComponent,
     ConnexionComponent,
     HomeComponent,
     ConcertReactiveFormComponent,
@@ -81,6 +81,7 @@ const routes: Routes =
     InputSwitchModule,
     SplitButtonModule,
     BrowserAnimationsModule,
+    FileUploadModule,
     SliderModule,
     CalendarModule,   
     SpinnerModule

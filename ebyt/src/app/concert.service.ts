@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Concert } from './concert';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { PanierComponent } from './panier/panier.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +40,9 @@ export class ConcertService {
 	deleteConcert(id: number): Observable<any> {
 		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
-
+	addImage(formData: FormData){
+		this.http.post(this.url + '/addImage', formData, this.httpOptions);
+	}
 	getFameConcerts() : Observable<Array<Concert>>{
 		return this.http.get<Array<Concert>>(this.url + '/fame', this.httpOptions);
 	}
@@ -78,8 +82,5 @@ export class ConcertService {
 		} else {
 			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 		}
-
-
 	}
-	
 }
