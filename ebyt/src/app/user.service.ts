@@ -39,6 +39,7 @@ export class UserService {
 				sessionStorage.setItem('role', response['role']);
 				sessionStorage.setItem('lastname', response['lastname']);
 				sessionStorage.setItem('firstname', response['firstname']);
+				sessionStorage.setItem('id', response['id']);
 				this.authenticated = true;
 				this.identifiant.next(response['username']);
 				return success && success();
@@ -65,19 +66,20 @@ export class UserService {
 	}
 
 	addUser(user : User){
-		this.http.post(this.url + '/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+		this.http.post(this.urlUser + '/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 
 	updateUser(user : User){
-		this.http.put(this.url + '/' + user.id, user, this.httpOptions).subscribe();
+		console.log(user);
+		this.http.put(this.urlUser + '/' + user.id, user, this.httpOptions).subscribe();
 	}
 
 	getUser(id : number) : Observable<User>{
-		return this.http.get<User>(this.url + '/' + id, this.httpOptions);
+		return this.http.get<User>(this.urlUser + '/' + id, this.httpOptions);
 	}
 
 	getUsers() : Observable<Array<User>>{
-		return this.http.get<Array<User>>(this.url + '/all', this.httpOptions);
+		return this.http.get<Array<User>>(this.urlUser + '/all', this.httpOptions);
 	}
 
 	search(username?: string, lastname?: string, firstname?: string) : Observable<Array<User>> {
@@ -96,6 +98,6 @@ export class UserService {
 			optionsParams.params = optionsParams.params.set('firstname', firstname);
 		}
 
-		return this.http.get<Array<User>>(this.url + '/getAll', optionsParams);
+		return this.http.get<Array<User>>(this.urlUser + '/getAll', optionsParams);
 	}
 }

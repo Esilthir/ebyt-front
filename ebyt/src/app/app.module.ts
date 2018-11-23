@@ -52,7 +52,7 @@ const routes: Routes =
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
   {path: 'panier', component: PanierComponent},
-  {path: 'monCompte', component: CompteUtilisateurComponent}
+  {path: 'monCompte/:id', component: CompteUtilisateurComponent}
 ]; 
 
 

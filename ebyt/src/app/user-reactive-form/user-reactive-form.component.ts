@@ -32,7 +32,8 @@ export class UserReactiveFormComponent implements OnInit {
 			this.id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
 			this.serviceUser.getUser(parseInt(this.routeActive.snapshot.paramMap.get('id'))).subscribe(u => this.userForm.setValue({
 				username: u.username, 
-				password: u.password,
+				password: ""
+				,
 				lastname: u.lastname, 
 				firstname: u.firstname,
 			}));

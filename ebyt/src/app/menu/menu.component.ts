@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
   firstname: string;
   items:MenuItem[];
   afficherPanier:boolean;
+  id:string;
   
 
   constructor(private userService: UserService) {
@@ -24,6 +25,7 @@ export class MenuComponent implements OnInit {
         this.role = sessionStorage.getItem('role');
         this.firstname = sessionStorage.getItem('firstname');
         this.lastname = sessionStorage.getItem('lastname');
+        this.id = sessionStorage.getItem('id');
       }
     })
    }
@@ -35,6 +37,7 @@ export class MenuComponent implements OnInit {
       this.firstname = sessionStorage.getItem('firstname');
       this.lastname = sessionStorage.getItem('lastname');
       this.afficherPanier = false;
+      this.id = sessionStorage.getItem('id');
     }
     this.items = [
       {label: 'Concerts', routerLink: ['/admin/concerts']
