@@ -31,8 +31,9 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { SafePipePipe } from './safe-pipe.pipe';
 import {CalendarModule} from 'primeng/calendar';
 import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
-import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
+import { CartComponent } from './cart/cart.component';
+import { NumberFormatPipe } from './number-format.pipe';
 
 
 
@@ -45,7 +46,7 @@ const routes: Routes =
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
-  {path: 'panier', component: PanierComponent}
+  { path: 'cart', component: CartComponent }
 ]; 
 
 
@@ -61,8 +62,9 @@ const routes: Routes =
     ListeConcertAdminComponent,
     ListConcertComponent,
     SafePipePipe,
-    RechercheConcertComponent,    
-    PanierComponent
+    RechercheConcertComponent,
+    CartComponent,
+    NumberFormatPipe
   ],
   imports: [
     BrowserModule,

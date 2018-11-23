@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from './user';
 import { Router } from '@angular/router';
-import { AppComponent } from './app.component';
 import { Subject, Observable } from 'rxjs';
-import { MenuComponent } from './menu/menu.component';
 
 @Injectable({
 	providedIn: 'root'

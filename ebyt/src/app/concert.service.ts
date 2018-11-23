@@ -3,13 +3,15 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Concert } from './concert';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { PanierComponent } from './panier/panier.component';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ConcertService {
+
+	private concerts: Concert[];
 
 	url = 'http://localhost:8070/concert';	
 	httpOptions = {
@@ -17,7 +19,8 @@ export class ConcertService {
 		reportProgress: true
 	};
 
-	constructor(private http: HttpClient, private router: Router) { }
+	constructor(private http: HttpClient, private router: Router) {
+	}
 
 	// La on met les méthodes qui discutent avec le back
 
@@ -40,9 +43,7 @@ export class ConcertService {
 	deleteConcert(id: number): Observable<any> {
 		return this.http.delete(this.url + "/" + id, this.httpOptions);
 	}
-	addImage(formData: FormData){
-		this.http.post(this.url + '/addImage', formData, this.httpOptions);
-	}
+
 	getFameConcerts() : Observable<Array<Concert>>{
 		return this.http.get<Array<Concert>>(this.url + '/fame', this.httpOptions);
 	}
@@ -51,13 +52,11 @@ export class ConcertService {
 		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
 	}
 
-	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean ) : Observable<Array<Concert>> {
-		
+	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number ) : Observable<Array<Concert>> {
 		let optionsParams = 
 		{ 	params: new HttpParams(),
 			headers: new HttpHeaders({'Content-type': 'application/json'}),
-			reportProgress: true,
-
+			reportProgress: true
 		};
 		if (name) {
 			optionsParams.params = optionsParams.params.set('name', name);
@@ -66,7 +65,7 @@ export class ConcertService {
 			optionsParams.params = optionsParams.params.set('artist',artist);
 		}
 		if (date) {
-			optionsParams.params = optionsParams.params.set('date', date.toLocaleDateString());
+			optionsParams.params = optionsParams.params.set('date', date.toString());
 		}
 		if (place) {
 		  optionsParams.params = optionsParams.params.append('place', place);
@@ -74,13 +73,12 @@ export class ConcertService {
 		if (priceMax < 200) {
 			optionsParams.params = optionsParams.params.set('priceMax', priceMax.toString());
 		}
-		if (active) {
-			optionsParams.params = optionsParams.params.set('active', active.toString());
-		}
-		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
-			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
-		} else {
-			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
-		}
+
+		return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 	}
+
+	addImage(data: FormData) {
+		//TODO: A faire
+	}
+	
 }

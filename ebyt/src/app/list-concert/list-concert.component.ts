@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Concert } from '../concert';
 import { ConcertService } from '../concert.service';
-import { PanierServiceService } from '../panier-service.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-list-concert',
@@ -10,11 +10,11 @@ import { PanierServiceService } from '../panier-service.service';
 })
 export class ListConcertComponent implements OnInit {
 
-  rechercheAvancee: boolean
+  rechercheAvancee: boolean;
 
   concerts: Array<Concert> = new Array();
 
-  constructor( private concertService: ConcertService, private panierService: PanierServiceService ) {
+  constructor(private concertService: ConcertService, private cartService: CartService) {
 
    }
 
@@ -24,8 +24,8 @@ export class ListConcertComponent implements OnInit {
    });
   }
 
-  addPanier(concert: Concert) {
-    this.panierService.addPanier(concert);
+  addToCart(concert: Concert) {
+    this.cartService.addToCart(concert);
   }
 
 }

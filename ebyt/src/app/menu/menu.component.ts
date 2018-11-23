@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
 import { MenuItem } from 'primeng/components/common/menuitem';
+import { Item } from '../item';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,9 +17,9 @@ export class MenuComponent implements OnInit {
   firstname: string;
   items:MenuItem[];
   afficherPanier:boolean;
-  
+  cart: Array<Item>;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private panierService: CartService) {
     userService.identifiant$.subscribe(() => {
       if (sessionStorage.getItem('username')){
         this.authenticated = true;
@@ -30,6 +32,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.role = sessionStorage.getItem('role');
+    this.cart = this.panierService.loadCart();
     if(sessionStorage.getItem('username')) {
       this.authenticated = true;
       this.firstname = sessionStorage.getItem('firstname');
