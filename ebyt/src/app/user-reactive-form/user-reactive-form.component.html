@@ -1,0 +1,21 @@
+<div class="formulaire">
+	<h1 *ngIf="add">Créer compte</h1>
+	<h1 *ngIf="!add">Modifier compte</h1>
+	<form [formGroup]='userForm' (ngSubmit) = 'onSubmit()'>
+		<div>
+			<label for="username">Mail :</label><input pInputText type='mail' id='username' name='username' formControlName='username'/>
+		</div>
+		<div>
+			<label for="password">Mot de passe :</label><input pInputText type='password' id='password' name='password' formControlName='password'/>
+		</div>
+		<div>
+			<label for="password">Nom :</label><input pInputText type='text' id='lastname' name='lastname' formControlName='lastname'/>
+		</div>
+		<div>
+			<label for="password">Prénom :</label><input pInputText type='text' id='firstname' name='firstname' formControlName='firstname'/>
+		</div>
+		<div class=bouton>
+			<button type='submit' [disabled]='!userForm.valid'>Enregister</button>	
+		</div>
+	</form>
+</div>
