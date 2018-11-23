@@ -16,7 +16,7 @@
     <div>
       <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
       <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
-      <li><a href="">Mon Compte</a></li>
+      <li><a routerLink="monCompte">Mon Compte</a></li>
       <li>
         <img (click)="logout()" src="./assets/icons/deconnexion.png">
       </li> 

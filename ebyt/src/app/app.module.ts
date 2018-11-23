@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './home/home.component';
 import {SliderModule} from 'primeng/slider';
+import {TabViewModule} from 'primeng/tabview';
 
 import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
 import { RouterModule, Routes, Router} from '@angular/router';
@@ -34,6 +35,7 @@ import { RechercheConcertComponent } from './recherche-concert/recherche-concert
 import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
 import {PaginatorModule} from 'primeng/paginator';
+import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 
 
 
@@ -46,7 +48,8 @@ const routes: Routes =
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
-  {path: 'panier', component: PanierComponent}
+  {path: 'panier', component: PanierComponent},
+  {path: 'monCompte', component: CompteUtilisateurComponent}
 ]; 
 
 
@@ -63,7 +66,7 @@ const routes: Routes =
     ListConcertComponent,
     SafePipePipe,
     RechercheConcertComponent,    
-    PanierComponent
+    PanierComponent, CompteUtilisateurComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ const routes: Routes =
     SliderModule,
     CalendarModule,   
     SpinnerModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
