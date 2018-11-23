@@ -62,4 +62,9 @@ export class UserService {
 			resolve.call(sessionStorage.clear())
 		})
 	}
+
+	createUser( user: User ){
+		this.http.post(this.url + '/user/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+	}
+
 }
