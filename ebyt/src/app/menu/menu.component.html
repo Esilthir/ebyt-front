@@ -12,11 +12,11 @@
   
   <div  *ngIf="authenticated">
     <!-- <div class="remplacement"></div> -->
-    <img src="./assets/icons/robot.png" alt="">
+    <img class="robot" src="./assets/icons/robot.png" alt="">
     <div>
       <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
       <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
-      <li><a href="">Mon Compte</a></li>
+      <li><a routerLink="monCompte/{{id}}">Mon Compte</a></li>
       <li>
         <img (click)="logout()" src="./assets/icons/deconnexion.png">
       </li> 

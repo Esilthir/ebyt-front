@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './home/home.component';
 import {SliderModule} from 'primeng/slider';
+import {TabViewModule} from 'primeng/tabview';
 
 import { ConcertReactiveFormComponent } from './concert-reactive-form/concert-reactive-form.component';
 import { RouterModule, Routes, Router} from '@angular/router';
@@ -34,19 +35,25 @@ import { RechercheConcertComponent } from './recherche-concert/recherche-concert
 import {SpinnerModule} from 'primeng/spinner';
 import { CartComponent } from './cart/cart.component';
 import { NumberFormatPipe } from './number-format.pipe';
+import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-form.component';
+import {PaginatorModule} from 'primeng/paginator';
+import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 
 
 
 const routes: Routes = 
 [
+  {path: 'addUser', component: UserReactiveFormComponent},
   {path: 'addConcert', component: ConcertReactiveFormComponent},
+  {path: 'admin/addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
   {path: '', component: HomeComponent},
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
-  { path: 'cart', component: CartComponent }
+  {path: 'cart', component: CartComponent},
+  {path: 'monCompte/:id', component: CompteUtilisateurComponent}
 ]; 
 
 
@@ -64,7 +71,9 @@ const routes: Routes =
     SafePipePipe,
     RechercheConcertComponent,
     CartComponent,
-    NumberFormatPipe
+    NumberFormatPipe,
+    CompteUtilisateurComponent,
+    UserReactiveFormComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +95,9 @@ const routes: Routes =
     FileUploadModule,
     SliderModule,
     CalendarModule,   
-    SpinnerModule
+    SpinnerModule,
+    PaginatorModule,
+    TabViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

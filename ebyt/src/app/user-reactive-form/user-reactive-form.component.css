@@ -1,0 +1,58 @@
+form{
+    margin-top: 80px;
+    border-style: solid;
+    border-color: #5c5e66;
+    border-width: 5px;
+    background-color: #ffffff;
+}
+
+button:hover{
+    background-color: #5c5e66;
+    transition: 0.3s;
+}
+
+button{
+    background-color: #23c8dd;
+    color: #FFF;
+    border-width: 0;
+    padding: 10px 10px 10px 10px;
+    margin-top: 30px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.formulaire{
+    font-family: 'Poppins', sans-serif;
+    margin: 60px;
+    color: #5c5e66;
+}
+
+a{
+    color: #5c5e66;
+}
+
+form > div{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+label{
+    text-align: left;
+    display: block;
+}
+
+form > div > input{
+    width: 100%;
+    vertical-align: center;
+}
+
+form > div > textarea{
+    width: 100%;
+    border: 1px solid #a6a6a6;;
+}
+
+form > div.bouton{
+    margin: 0px auto 20px auto;
+}

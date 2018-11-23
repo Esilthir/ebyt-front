@@ -1,0 +1,18 @@
+.wrapper{
+    border-bottom: 2px solid #1c1c1c; 
+    position: relative;
+    padding: 25px 0; 
+    background-color: #5c5e66;
+    color: white;
+}
+
+
+
+.listeCommandes{
+    height:70px;
+    border-bottom : 2px solid #5C5E66;
+}
+
+.tableauCommandes>div:last-child{
+    border-bottom: 0;
+}
