@@ -1,8 +1,12 @@
 <div class="header">
   <h2>Liste des concerts (admin)</h2>
+
+  <a routerLink="../addConcert" class="btnAdd"> <button pButton type="button" class="ui-button-rounded" label="Ajouter Concert"></button>
+  </a>
+  <app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
+  
 </div>
 
-<app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
 
 
 <div class="listeConcertAdminDetail">
@@ -14,7 +18,7 @@
 </div>
 
 
-<div *ngFor="let concert of concerts">
+<div *ngFor="let concert of concertsToShow;">
   <div class="listeConcertAdminDetail" [ngClass]="{'inactiveConcert': !concert.active}">
 
     <div class="ui-g-3"> <a routerLink="../../ficheConcert/{{concert.id}}">{{concert.name}} - {{concert.artist}}</a> </div>
@@ -32,4 +36,7 @@
     </div>   
   </div>
 </div>
+
+<p-paginator [rows]="10" [totalRecords]="concertCount" [rowsPerPageOptions]="[10,20,30]" (onPageChange)="paginate($event)"></p-paginator>
+
 

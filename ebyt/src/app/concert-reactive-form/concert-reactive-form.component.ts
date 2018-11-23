@@ -50,7 +50,10 @@ export class ConcertReactiveFormComponent implements OnInit {
 				description: c.description,
 				nbMaxPlaces: c.nbMaxPlaces,
 				price: c.price,
-				urlVideo: c.urlVideo
+				urlVideo: c.urlVideo,
+				urlPic: "",
+				urlPicRec: "",
+				place: c.place
 			}); 
 			this.nbBoughtPlace = c.nbBoughtPlace,
 			this.active = c.active});
@@ -70,7 +73,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		let fd = new FormData();
 		let fdIsEmpty: boolean = true;
 		concert.artist = this.concertForm.value.artist;
-		concert.name = this.concertForm.value.artist;
+		concert.name = this.concertForm.value.name;
 		concert.date = this.concertForm.value.date;
 		concert.genre = this.concertForm.value.genre;
 		concert.description = this.concertForm.value.description;

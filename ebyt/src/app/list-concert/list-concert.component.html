@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div class="recherche-content">
-    <h2>Liste des concerts</h2>
+    <h2 id="coucou">Liste des concerts</h2>
 
     <app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
 
   </div>
 
-  <div class="concert-content ui-g" *ngFor="let concert of concerts">
+  <div class="concert-content ui-g" *ngFor="let concert of concertsToShow">
     <div class="ui-g-1 musique">
       <h4 class="style-musique"> {{concert.genre}} </h4>
     </div>
@@ -30,3 +30,6 @@
         <a (click)="addPanier(concert)"><p class="ajout-concert">+</p></a>
       </div>
   </div>
+
+
+  <p-paginator [rows]="10" [totalRecords]="concertCount" [rowsPerPageOptions]="[10,20,30]" (onPageChange)="paginate($event)" ></p-paginator>

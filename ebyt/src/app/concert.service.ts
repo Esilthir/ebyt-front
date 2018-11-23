@@ -26,7 +26,7 @@ export class ConcertService {
 	}
 
 	updateConcert(concert : Concert){
-		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe();
+		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
 
 	getConcert(id : number) : Observable<Concert>{
@@ -51,7 +51,11 @@ export class ConcertService {
 		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
 	}
 
-	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean ) : Observable<Array<Concert>> {
+	concertCount() : Observable<number> {
+		return this.http.get<number>(this.url + '/count', this.httpOptions);
+	}
+
+	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean, pageNumber?:number, pageSize?:number ) : Observable<Array<Concert>> {
 		
 		let optionsParams = 
 		{ 	params: new HttpParams(),
@@ -77,6 +81,9 @@ export class ConcertService {
 		if (active) {
 			optionsParams.params = optionsParams.params.set('active', active.toString());
 		}
+		optionsParams.params = optionsParams.params.set('pageNumber', "1");
+		optionsParams.params = optionsParams.params.set('pageSize', "10");
+
 		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
 			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
 		} else {
