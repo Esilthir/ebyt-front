@@ -34,6 +34,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { RechercheConcertComponent } from './recherche-concert/recherche-concert.component';
 import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
+import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-form.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 
@@ -41,6 +42,8 @@ import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisat
 
 const routes: Routes = 
 [
+  {path: 'addUser', component: UserReactiveFormComponent},
+  {path: 'addConcert', component: ConcertReactiveFormComponent},
   {path: 'admin/addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
@@ -66,7 +69,9 @@ const routes: Routes =
     ListConcertComponent,
     SafePipePipe,
     RechercheConcertComponent,    
-    PanierComponent, CompteUtilisateurComponent
+    PanierComponent, 
+    CompteUtilisateurComponent,
+    UserReactiveFormComponent
   ],
   imports: [
     BrowserModule,
