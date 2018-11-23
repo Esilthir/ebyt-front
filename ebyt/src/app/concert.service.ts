@@ -26,7 +26,7 @@ export class ConcertService {
 	}
 
 	updateConcert(concert : Concert){
-		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe();
+		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
 
 	getConcert(id : number) : Observable<Concert>{
@@ -51,11 +51,17 @@ export class ConcertService {
 		return this.http.get<Array<Concert>>(this.url + '/last', this.httpOptions);
 	}
 
-	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number ) : Observable<Array<Concert>> {
+	concertCount() : Observable<number> {
+		return this.http.get<number>(this.url + '/count', this.httpOptions);
+	}
+
+	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean, pageNumber?:number, pageSize?:number ) : Observable<Array<Concert>> {
+		
 		let optionsParams = 
 		{ 	params: new HttpParams(),
 			headers: new HttpHeaders({'Content-type': 'application/json'}),
-			reportProgress: true
+			reportProgress: true,
+
 		};
 		if (name) {
 			optionsParams.params = optionsParams.params.set('name', name);
@@ -64,7 +70,7 @@ export class ConcertService {
 			optionsParams.params = optionsParams.params.set('artist',artist);
 		}
 		if (date) {
-			optionsParams.params = optionsParams.params.set('date', date.toString());
+			optionsParams.params = optionsParams.params.set('date', date.toLocaleDateString());
 		}
 		if (place) {
 		  optionsParams.params = optionsParams.params.append('place', place);
@@ -72,7 +78,16 @@ export class ConcertService {
 		if (priceMax < 200) {
 			optionsParams.params = optionsParams.params.set('priceMax', priceMax.toString());
 		}
+		if (active) {
+			optionsParams.params = optionsParams.params.set('active', active.toString());
+		}
+		optionsParams.params = optionsParams.params.set('pageNumber', "1");
+		optionsParams.params = optionsParams.params.set('pageSize', "10");
 
-		return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
+		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
+			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
+		} else {
+			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
+		}
 	}
 }

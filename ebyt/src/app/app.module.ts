@@ -35,6 +35,7 @@ import { RechercheConcertComponent } from './recherche-concert/recherche-concert
 import { PanierComponent } from './panier/panier.component';
 import {SpinnerModule} from 'primeng/spinner';
 import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-form.component';
+import {PaginatorModule} from 'primeng/paginator';
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes =
 [
   {path: 'addUser', component: UserReactiveFormComponent},
   {path: 'addConcert', component: ConcertReactiveFormComponent},
+  {path: 'admin/addConcert', component: ConcertReactiveFormComponent},
   {path: 'updateConcert/:id', component: ConcertReactiveFormComponent},
   {path: 'login', component: ConnexionComponent},
   {path: '', component: HomeComponent},
@@ -63,7 +65,6 @@ const routes: Routes =
     FicheConcertComponent,
     ListeConcertAdminComponent,
     ListConcertComponent,
-    FileSelectDirective,
     SafePipePipe,
     RechercheConcertComponent,    
     PanierComponent, UserReactiveFormComponent
@@ -88,7 +89,8 @@ const routes: Routes =
     FileUploadModule,
     SliderModule,
     CalendarModule,   
-    SpinnerModule
+    SpinnerModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

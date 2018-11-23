@@ -11,27 +11,31 @@ import { Concert } from '../concert';
 })
 export class ListeConcertAdminComponent implements OnInit {
 
-
+  concertCount: number;
   concerts: Array<Concert> = new Array();
+  concertsToShow: Array<Concert> = new Array();
+
 
   constructor(private concertService: ConcertService) {
-   }
+  }
 
   ngOnInit() {
-    this.concertService.getConcerts().subscribe((listeConcert) => {
-       this.concerts = listeConcert;
-    })
+    this.concertService.search().subscribe((listeConcert) => {
+      this.concerts = listeConcert;
+      this.concertCount = this.concerts.length;
+      this.concertsToShow = this.concerts.slice(0,10);
+    });
+
   }
 
   deleteConcert(id: number) {
-    this.concertService.deleteConcert(id).subscribe( response => {
-      if(response) {
+    this.concertService.deleteConcert(id).subscribe(response => {
+      if (response) {
         alert(response.message);
       } else {
         alert("Le concert " + id + " a bien été supprimé");
         this.ngOnInit();
       }
-
     });
   }
 
@@ -39,6 +43,11 @@ export class ListeConcertAdminComponent implements OnInit {
     this.concertService.updateConcert(concert);
   }
 
-
-
+  paginate(event) {
+    this.concertsToShow = this.concerts.slice(event.first, event.first + event.rows);
+    //event.first = Index of the first record
+    //event.rows = Number of rows to display in new page
+    //event.page = Index of the new page
+    //event.pageCount = Total number of pages
+  }
 }
