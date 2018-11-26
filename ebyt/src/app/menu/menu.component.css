@@ -144,3 +144,7 @@ div.icon{
 .bold{
     font-weight: bold;
 }
+
+.robot {
+    width: 10em;
+}

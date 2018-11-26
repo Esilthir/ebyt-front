@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 
 export class UserService {
 	private url = 'http://localhost:8070';
+	private urlUser = 'http://localhost:8070/user';
 	private authenticated = false;
 	private identifiant = new Subject<String>()
 
@@ -63,8 +64,38 @@ export class UserService {
 		})
 	}
 
-	createUser( user: User ){
+	addUser(user : User){
 		this.http.post(this.url + '/user/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 
-}
+	updateUser(user : User){
+		this.http.put(this.url + '/' + user.id, user, this.httpOptions).subscribe();
+	}
+
+	getUser(id : number) : Observable<User>{
+		return this.http.get<User>(this.url + '/' + id, this.httpOptions);
+	}
+
+	getUsers() : Observable<Array<User>>{
+		return this.http.get<Array<User>>(this.url + '/all', this.httpOptions);
+	}
+
+	search(username?: string, lastname?: string, firstname?: string) : Observable<Array<User>> {
+		let optionsParams = 
+		{ 	params: new HttpParams(),
+			headers: new HttpHeaders({'Content-type': 'application/json'}),
+			reportProgress: true
+		};
+		if (username) {
+			optionsParams.params = optionsParams.params.set('username', username);
+		}
+		if (lastname) {
+			optionsParams.params = optionsParams.params.set('lastname',lastname);
+		}
+		if (firstname) {
+			optionsParams.params = optionsParams.params.set('firstname', firstname);
+		}
+
+		return this.http.get<Array<User>>(this.url + '/getAll', optionsParams);
+	}
+} 

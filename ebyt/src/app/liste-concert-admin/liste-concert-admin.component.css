@@ -57,3 +57,7 @@
     background-color: #B7B7B7;
 }
 
+.btnAdd{
+    position: absolute;
+    right: 4em;
+}

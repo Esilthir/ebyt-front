@@ -74,7 +74,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		let fd = new FormData();
 		let fdIsEmpty: boolean = true;
 		concert.artist = this.concertForm.value.artist;
-		concert.name = this.concertForm.value.artist;
+		concert.name = this.concertForm.value.name;
 		concert.date = this.concertForm.value.date;
 		concert.genre = this.concertForm.value.genre;
 		concert.description = this.concertForm.value.description;
