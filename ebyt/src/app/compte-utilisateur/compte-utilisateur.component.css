@@ -9,8 +9,13 @@
 
 
 .listeCommandes{
-    height:70px;
-    border-bottom : 2px solid #5C5E66;
+    line-height:70px;
+    border-bottom : 2px solid #1c1c1c;
+    transition: 0.2s;
+}
+.listeCommandes:hover{
+    background-color: #ecebf3;
+    transition: 0.2s;
 }
 
 .tableauCommandes>div:last-child{
