@@ -1,0 +1,39 @@
+<div class="wrapper-panier">
+  
+  <h1>Panier</h1>
+  <p *ngIf="cart.length === 0">wsh c vide</p>
+  <div class="ui-g panier-element" *ngFor="let i of cart">
+    <div class="contenu ui-g-7">
+      <img src="./assets/hellfest.jpg" alt="">
+      <div>
+        <h3><a href="">{{i.concert.name}}</a></h3>
+        <p>{{i.concert.artist}}
+          <p><strong>{{i.concert.date}}</strong></p>
+          <p><strong>{{i.concert.place}}</strong></p>
+        </div>
+      </div>
+      <div class="ui-g-2 centre-price">
+        <div class="price">
+          <p><span>{{(i.concert.price * i.quantity) | numberFormat}}€</span> <br> {{i.concert.price}}€ / place </p>
+          
+        </div>
+      </div>
+      <div class="contenu ui-g-2">
+        <div class="centre-button">
+          <div class="centre-nb-place">
+            <div>
+              <button (click)="quantityPlus1(i)" type="button" class="destion-nb-place">+</button>
+            </div>
+            <p id="nb_places">{{i.quantity}}</p>
+            <!-- <input value="1" type="number" name="nb_places" id="nb_places"> -->
+            <div>
+              <button (click)="quantityMinus1(i)" type="button" class="destion-nb-place">-</button>
+            </div>
+          </div>
+          <!-- <p-spinner size="3" [(ngModel)]="val" [min]="1" [max]="100"></p-spinner> -->
+          <button (click)="remove(i.concert.id)" type="button" class="buttonSuppr">Supprimer</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>

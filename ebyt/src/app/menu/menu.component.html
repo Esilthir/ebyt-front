@@ -16,7 +16,7 @@
     <div>
       <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
       <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
-      <li><a href="">Mon Compte</a></li>
+      <li><a routerLink="monCompte/{{id}}">Mon Compte</a></li>
       <li>
         <img (click)="logout()" src="./assets/icons/deconnexion.png">
       </li> 
@@ -47,25 +47,26 @@
   <div class="panier">
     <div class="icon" (click)="afficherPanier = !afficherPanier">
       <img src="./assets/icons/panier.png">
-      <p class="prixpanier">200€</p>
+      <p class="prixpanier">TOTAL</p>
     </div>
     <div class="prix" (click)="afficherPanier = !afficherPanier">
       <h3>Panier</h3>
     </div>
-    <ul *ngIf= "afficherPanier ui-g" class="afficherPanier">
-      <li class="ui-g-3">
-       25€ <span class="boldblue">x2</span>
-      </li>
-      <a href=""><li class="ui-g-6">
-        Hellfest
-      </li></a>
-      <li class="ui-g-3">
-          <span class="bold">50€</span>
-      </li>
-    </ul>
-    <div *ngIf= "afficherPanier" class="total afficherPanier" ><a href="">TOTAL 100€</a></div>
+    <div *ngIf="afficherPanier ui-g">
+      <ul *ngFor="let item of panier.items"> class="afficherPanier">
+        <li class="ui-g-3">
+          prix€<span class="boldblue">x2</span>
+        </li>
+        <a href=""><li class="ui-g-6">
+          nom
+        </li></a>
+        <li class="ui-g-3">
+          <span class="bold">Total€</span>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf= "afficherPanier" class="total afficherPanier"><a href="">TOTAL€</a></div>
     
-    <a href="panier"><button *ngIf= "afficherPanier" class="afficherPanier"><h3>Accéder au panier</h3></button></a>
+    <a href="cart"><button *ngIf= "afficherPanier" class="afficherPanier"><h3>Accéder au panier</h3></button></a>
   </div>
-  
 </nav>

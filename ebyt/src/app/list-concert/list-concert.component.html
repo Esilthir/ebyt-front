@@ -3,7 +3,7 @@
     <h2 id="coucou">Liste des concerts</h2>
 
     <app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
-
+    
   </div>
 
   <div class="concert-content ui-g" *ngFor="let concert of concertsToShow">
@@ -16,18 +16,13 @@
       <p class="artiste-concert">{{concert.artist}}</p>
       <p class="date-concert"><strong>{{ concert.place }} {{concert.date | date:"dd/MM/yyyy - hh'H'mm"}}</strong> </p>
       <p class="description-concert">{{concert.description }}</p>
-      <p class="place-concert">place disponible : <strong>{{concert.nbMaxPlaces -
-          concert.nbBoughtPlace}}/{{concert.nbMaxPlaces}}</strong> </p>
+      <p class="place-concert">place disponible : <strong>{{concert.nbMaxPlaces - concert.nbBoughtPlace}}/{{concert.nbMaxPlaces}}</strong> </p>
     </div>
     <div class="ui-g-1 prix-ajout">
       <p class="prix-concert"> {{concert.price}}€</p>
-      <a href="">
-        <p class="ajout-concert">+</p>
-      </a>
-    </div>
-    <div class="ui-g-1 prix-ajout" >
-        <p class="prix-concert"> {{concert.price}}€</p>
-        <a (click)="addPanier(concert)"><p class="ajout-concert">+</p></a>
+      <a href="cart">
+        <p class="ajout-concert" (click)="addToCart(concert)">+</p>
+        </a>
       </div>
   </div>
 
