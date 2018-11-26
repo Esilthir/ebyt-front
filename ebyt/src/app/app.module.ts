@@ -77,11 +77,7 @@ const routes: Routes =
     NumberFormatPipe,
     CompteUtilisateurComponent,
     UserReactiveFormComponent,
-<<<<<<< HEAD
-    
-=======
     ListeCommandeAdminComponent
->>>>>>> a9b497bbb221b90b54f9041e5b17b23a4aed7e60
   ],
   imports: [
     BrowserModule,

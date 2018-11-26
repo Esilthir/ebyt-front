@@ -16,9 +16,12 @@
 
 .listeCommandes{
     line-height:70px;
-    border-top : 2px solid #1c1c1c;
+    border-bottom : 2px solid #1c1c1c;
     transition: 0.2s;
     
+}
+.tableauCommandes{
+    text-align: center;
 }
 .tableauCommandes a{
     color: #1c1c1c;
@@ -30,6 +33,3 @@
     color: #23c8dd;
 }
 
-.tableauCommandes > a:last-child >div{
-    border-bottom: 2px solid #1c1c1c;
-}
