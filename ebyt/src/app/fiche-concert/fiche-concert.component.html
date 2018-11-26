@@ -6,7 +6,7 @@
     <div class="ui-g-3 infos lieudate"><p class="lieudate lieu">{{concert.place}}</p><p class="lieudate date">{{concert.date | date:"dd/MM/yy"}}</p></div>
     <div class="ui-g-6 infos"><h1 class="title">{{concert.name}}</h1><h2>Artiste(s) : {{concert.artist}}</h2></div>
     <div class="ui-g-1 infos prix-ajout"><p class="prix-concert">{{concert.price}} €</p></div>
-    <div class="ui-g-2 infos prix-ajout ajout"><a href=""><p class="ajout-concert">+</p></a></div>
+    <div class="ui-g-2 infos prix-ajout ajout"><a href="listConcert"><p class="ajout-concert">+</p></a></div>
   </div>
   <div class="ui-g textblock">
       <img [src]="concert.urlPic | safePipe">

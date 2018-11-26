@@ -36,6 +36,14 @@ export class ConcertService {
 		this.http.put(this.url + '/' + concert.id, tab, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
 
+	addImageRec(imgRec: File, id: number) {
+		this.http.post(this.url + '/' + "AddImageRec" + '/' + id, imgRec, this.httpOptions);
+	}
+
+	addImageCarre(imgCarre: File, id: number){
+		this.http.post(this.url + '/' + "AddImageCarre" + '/' + id, imgCarre, this.httpOptions);
+	}
+
 	getConcert(id : number) : Observable<Concert>{
 		return this.http.get<Concert>(this.url + '/' + id, this.httpOptions);
 	}
@@ -97,11 +105,4 @@ export class ConcertService {
 			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 		}
 	}
-	
-	addImage(data: FormData) {
-		//TODO: A faire
-		
-	}
-
-
 }

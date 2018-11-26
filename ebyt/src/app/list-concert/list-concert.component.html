@@ -20,9 +20,7 @@
     </div>
     <div class="ui-g-1 prix-ajout">
       <p class="prix-concert"> {{concert.price}}€</p>
-      <a href="cart">
-        <p class="ajout-concert" (click)="addToCart(concert)">+</p>
-        </a>
+        <a href="cart"><p class="ajout-concert" (click)="addToCart(concert)">{{plus}}</p></a>
       </div>
   </div>
 

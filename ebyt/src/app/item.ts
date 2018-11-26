@@ -10,7 +10,7 @@ export class Item {
     constructor(concert?:Concert, quantity?:number){
         isNullOrUndefined(concert) ? console.log("NUL") : console.log("OK");
         this.concert = concert; 
-        this.quantity = quantity;
+        this.quantity = quantity === undefined ? 0 : quantity;
     }
     
     getTotalPrice(): number {

@@ -2,6 +2,9 @@
   
   <h1>Panier</h1>
   <h2 *ngIf="cart.length === 0" class="messPanier">Le panier est vide, il n'y a rien à afficher !</h2>
+  
+  <a href="listConcert"><h2 class="continue">Cliquez ici pour continuer les achats</h2></a>
+  
   <div class="ui-g panier-element" *ngFor="let i of cart">
     <div class="contenu ui-g-7">
       <img src="./assets/hellfest.jpg" alt="">
@@ -14,7 +17,7 @@
       </div>
       <div class="ui-g-2 centre-price">
         <div class="price">
-          <p><span>{{(i.concert.price * i.quantity) | numberFormat}}€</span> <br> {{i.concert.price}}€ / place </p>
+          <p><span>{{(i.concert.price * i.quantity) | numberFormat}}€</span> <br> {{i.concert.price  | numberFormat}}€/ place </p>
           
         </div>
       </div>
@@ -35,5 +38,13 @@
           
         </div>
       </div>
+    </div>
+    <div *ngIf="tot !== 0">
+      <div class="tot">
+        TOTAL : {{tot | numberFormat}}€ 
+        <div class="valid" *ngIf="authenticated" (click)="removeAll()"><a href="payment">Valider mon panier</a></div>
+        <div class="valid" *ngIf="!authenticated" (click)="createCom(cart)"><a href="login">Vous devez être connecté pour valider</a></div>
+      </div>
+      
     </div>
   </div>

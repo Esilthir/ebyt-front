@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { Subject, Observable } from 'rxjs';
+import { Commande } from './commande';
 
 @Injectable({
 	providedIn: 'root'
@@ -69,12 +70,14 @@ export class UserService {
 	}
 
 	updateUser(user : User){
-		console.log(user);
 		this.http.put(this.urlUser + '/' + user.id, user, this.httpOptions).subscribe();
 	}
 
 	getUser(id : number) : Observable<User>{
 		return this.http.get<User>(this.urlUser + '/' + id, this.httpOptions);
+	}
+	getCommandeByUser(id : number) : Observable<Commande>{
+		return this.http.get<Commande>(this.urlUser + '/commande/' + id, this.httpOptions);
 	}
 
 	getUsers() : Observable<Array<User>>{
