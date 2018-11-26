@@ -19,6 +19,10 @@ export class CommandeService {
 
   getCommandes() : Observable<Array<Commande>>{
 		return this.http.get<Array<Commande>>(this.url + '/', this.httpOptions);
-	}
+  }
+  
+  getCommandesUser() : Observable<Array<Commande>>{
+    return this.http.get<Array<Commande>>(this.url + '/commande/' + sessionStorage.getItem('id'), this.httpOptions);
+  }
 
 }
