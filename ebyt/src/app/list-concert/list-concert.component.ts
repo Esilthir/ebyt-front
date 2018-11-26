@@ -15,7 +15,7 @@ export class ListConcertComponent implements OnInit {
   rechercheAvancee: boolean;
   item: Item;
   concerts: Array<Concert> = new Array();
-  concertsToShow: Array<Concert>;
+  allConcerts: Array<Concert> = new Array();
   concertCount: number;
   plus = "+";
 
@@ -25,9 +25,9 @@ export class ListConcertComponent implements OnInit {
 
   ngOnInit() {
     this.concertService.search().subscribe((listeConcert) => {
-      this.concerts = listeConcert;
-      this.concertCount = this.concerts.length;
-      this.concertsToShow = this.concerts.slice(0,10);
+      this.allConcerts = listeConcert;
+      this.concertCount = listeConcert.length;
+      this.concerts = listeConcert.slice(0,10);
    })
   }
 
@@ -36,8 +36,8 @@ export class ListConcertComponent implements OnInit {
   }
 
   paginate(event) {
-    this.concertsToShow = this.concerts.slice(event.first, event.first + event.rows);
-    
+    this.concerts = this.allConcerts.slice(event.first, event.first + event.rows);
+
     //event.first = Index of the first record
     //event.rows = Number of rows to display in new page
     //event.page = Index of the new page

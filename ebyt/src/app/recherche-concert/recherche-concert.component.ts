@@ -14,6 +14,7 @@ export class RechercheConcertComponent implements OnInit {
 
   @Input() concerts: Concert[];
   @Output() concertsChange =  new EventEmitter<Concert[]>();
+
   genres = [
     {name: 'POP'},
     {name: 'ROCK'},
@@ -28,12 +29,11 @@ export class RechercheConcertComponent implements OnInit {
     {name: 'ACOUSTIQUE'}
   ]
 
-  name: string;
-  artist: string;
+  name= "";
+  artist = "";
   genre: any = "";
-  place: string;
+  place = "";
   priceMax: number;
-  file: File;
 
   constructor(private concertService: ConcertService) {
     this.priceMax = 200;
