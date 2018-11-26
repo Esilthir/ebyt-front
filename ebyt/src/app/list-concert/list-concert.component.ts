@@ -22,10 +22,14 @@ export class ListConcertComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log("coucou");
     this.concertService.search().subscribe((listeConcert) => {
       this.concerts = listeConcert;
+      console.log(this.concerts);
       this.concertCount = this.concerts.length;
+      console.log(this.concertCount);
       this.concertsToShow = this.concerts.slice(0,10);
+      console.log(this.concertsToShow);
    })
   }
 

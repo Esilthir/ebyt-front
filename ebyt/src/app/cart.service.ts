@@ -52,10 +52,12 @@ export class CartService {
     this.total = 0;
     this.items = [];
     let cart = JSON.parse(localStorage.getItem('cart'));
-    for (var i = 0; i < cart.length; i++) {
-      let item = cart[i];
-      this.items.push(new Item(item.concert, item.quantity));
-      this.total += item.concert.price * item.quantity;
+    if (!isNullOrUndefined(cart)){
+      for (var i = 0; i < cart.length; i++) {
+        let item = cart[i];
+        this.items.push(new Item(item.concert, item.quantity));
+        this.total += item.concert.price * item.quantity;
+      }
     }
     return this.items;
   }

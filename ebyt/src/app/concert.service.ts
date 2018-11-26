@@ -63,6 +63,7 @@ export class ConcertService {
 			headers: new HttpHeaders({'Content-type': 'application/json'}),
 			reportProgress: true
 		};
+		console.log(optionsParams);
 		if (name) {
 			optionsParams.params = optionsParams.params.set('name', name);
 		}
@@ -87,6 +88,7 @@ export class ConcertService {
 		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
 			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
 		} else {
+			console.log("coucou c mwa");
 			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 		}
 	}
