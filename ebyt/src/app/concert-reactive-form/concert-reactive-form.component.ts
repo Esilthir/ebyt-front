@@ -94,8 +94,10 @@ export class ConcertReactiveFormComponent implements OnInit {
 		}
 
 		if(this.add){
-			this.serviceConcert.addConcert(concert).then(concert => {
-				console.log(concert.id);
+			let idConcert;
+			this.serviceConcert.addConcert(concert).subscribe( response => {
+				idConcert = response.id;
+				
 				// Appels WS images
 				// , this.selectedPicRec, this.selectedPic
 			});

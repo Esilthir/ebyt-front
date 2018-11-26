@@ -21,11 +21,9 @@
       <p-slider [(ngModel)]="priceMax" [min]="0" [max]="200" [style]="{'width':'14em'}"></p-slider>
     </div>
     </div>
-    <div class="ui-g-2">
-      <div class="montPicker">
-              <label for="date">Date</label>
-      <p-calendar id="date" [(ngModel)]="date" view="month" dateFormat="mm/yy" [yearNavigator]="true" yearRange="2000:2030"></p-calendar>
-      </div>
+    <div class="ui-g-2 dropdownGenre">
+
+      <p-dropdown id="genre" [options]="genres" [(ngModel)]="genre" placeholder="Genre" optionLabel="name" [showClear]="true"></p-dropdown>
     </div>
     <div class="ui-g-2">
         <button pButton class="ui-button-rounded btn-valid" type="submit" label="Lancer la recherche" (click)="search()" ></button>

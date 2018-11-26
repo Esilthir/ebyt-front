@@ -24,6 +24,8 @@ export class ListeConcertAdminComponent implements OnInit {
       this.concerts = listeConcert;
       this.concertCount = this.concerts.length;
       this.concertsToShow = this.concerts.slice(0,10);
+      console.log(this.concerts);
+      console.log(this.concertsToShow);
     });
 
   }
