@@ -64,6 +64,7 @@ export class UserService {
 	}
 
 	addUser(user : User){
+		// this.http.post(this.url + '/user/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 		this.http.post(this.urlUser + '/', user, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 
@@ -98,4 +99,4 @@ export class UserService {
 
 		return this.http.get<Array<User>>(this.urlUser + '/getAll', optionsParams);
 	}
-}
+} 

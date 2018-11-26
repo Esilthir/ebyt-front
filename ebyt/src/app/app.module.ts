@@ -56,7 +56,7 @@ const routes: Routes =
   {path: 'monCompte/:id', component: CompteUtilisateurComponent}
 ]; 
 
-
+ 
 @NgModule({
   declarations: [
     AppComponent,

@@ -50,14 +50,15 @@ export class ConcertReactiveFormComponent implements OnInit {
 				description: c.description,
 				nbMaxPlaces: c.nbMaxPlaces,
 				price: c.price,
-				urlVideo: c.urlVideo,
 				urlPic: "",
 				urlPicRec: "",
-				place: c.place
+				place: c.place,
+				urlVideo: c.urlVideo
 			}); 
 			this.nbBoughtPlace = c.nbBoughtPlace,
 			this.active = c.active});
 		}
+		console.log(this.id);
 	}
 
 	onPicRecSelected(event){
