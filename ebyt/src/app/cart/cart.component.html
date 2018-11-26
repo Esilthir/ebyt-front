@@ -1,7 +1,7 @@
 <div class="wrapper-panier">
   
   <h1>Panier</h1>
-  <p *ngIf="cart.length === 0">wsh c vide</p>
+  <h2 *ngIf="cart.length === 0" class="messPanier">Le panier est vide, il n'y a rien à afficher !</h2>
   <div class="ui-g panier-element" *ngFor="let i of cart">
     <div class="contenu ui-g-7">
       <img src="./assets/hellfest.jpg" alt="">

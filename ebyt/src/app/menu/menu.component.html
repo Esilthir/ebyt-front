@@ -53,7 +53,7 @@
       <h3>Panier</h3>
     </div>
     <div *ngIf="afficherPanier ui-g">
-      <ul *ngFor="let item of panier.items"> class="afficherPanier">
+      <ul *ngFor="let i of cart" class="afficherPanier">
         <li class="ui-g-3">
           prix€<span class="boldblue">x2</span>
         </li>
