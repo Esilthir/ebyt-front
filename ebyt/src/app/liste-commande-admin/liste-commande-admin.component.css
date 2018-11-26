@@ -1,0 +1,35 @@
+.wrapper{
+    position: relative;
+    padding: 25px 0; 
+    padding-top: 0;
+    background-color: #ecebf3;
+}
+
+
+.recherche-content{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #5c5e66;
+}
+
+
+
+.listeCommandes{
+    line-height:70px;
+    border-top : 2px solid #1c1c1c;
+    transition: 0.2s;
+    
+}
+.tableauCommandes a{
+    color: #1c1c1c;
+    
+}
+.listeCommandes:hover{
+    background-color: #5c5e66;
+    transition: 0.2s;
+    color: #23c8dd;
+}
+
+.tableauCommandes > a:last-child >div{
+    border-bottom: 2px solid #1c1c1c;
+}
