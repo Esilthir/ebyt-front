@@ -10,40 +10,51 @@ import { CartService } from '../cart.service';
 })
 
 export class CartComponent implements OnInit {
-  
+  item: Item;
   items: Item[] = [];
   cart: Item[];
+  tot: number;
+  role: string;
+  authenticated: boolean;
   
 	constructor(
 		private activatedRoute: ActivatedRoute,
-		private cartService: CartService
-    ) {}
+    private cartService: CartService
+    ) {
+    }
     
     ngOnInit() {
+      this.reloadCart();
+      this.role = sessionStorage.getItem('role');
       this.cart = this.cartService.loadCart();
-    }
-    
-    quantityPlus1(item: Item){
-      let stock: Item = JSON.parse(localStorage.getItem('cart'));
-      stock[0].quantity += 1;
-      item.quantity += 1;
-      localStorage.setItem('cart', JSON.stringify(stock));
-    }
-    
-    quantityMinus1(item: Item){
-      if(item.quantity > 1)
-      {
-        let stock: Item = JSON.parse(localStorage.getItem('cart'));
-        stock[0].quantity -= 1;
-        item.quantity -= 1;
-        localStorage.setItem('cart', JSON.stringify(stock));
+      if(sessionStorage.getItem('username')) {
+        this.authenticated = true;
       }
     }
     
-    remove(id: number): void{
-      console.log(id);
-      this.cartService.remove(id);
-      this.ngOnInit();
+    quantityPlus1(item: Item){
+      this.cartService.addOneToCart(item.concert);
+      this.reloadCart();
     }
     
+    quantityMinus1(item: Item){
+      if (item.quantity > 1) {
+        this.cartService.removeOneFromCart(item.concert);
+      }
+      this.reloadCart();
+    }
+    
+    remove(id: number): void{
+      this.cartService.remove(id);
+      this.reloadCart();
+    }
+    
+    reloadCart() {
+      this.cart = this.cartService.loadCart();
+      this.tot = this.cartService.totalTotal;
+    }
+    
+    removeAll(){
+      localStorage.clear();
+    }
   }

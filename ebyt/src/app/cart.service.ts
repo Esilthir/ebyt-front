@@ -10,12 +10,12 @@ import { isUndefined, isNullOrUndefined } from 'util';
 export class CartService {
   
 	private items: Item[] = [];
-	private total: number = 0;
+  total: number = 0;
+  totalTotal: number = 0;
   
   constructor(private concertService: ConcertService) { }
   
-  
-  addToCart(concert: Concert): void{
+  addOneToCart(concert: Concert): void {
     if (concert.id) {
       let item: Item = new Item(concert, 1);
 
@@ -37,9 +37,7 @@ export class CartService {
         if (index == -1) {
           cart.push(item);
         } else {
-          let item: Item = cart[index];
-          item.quantity += 1;
-          cart[index] = item;
+          cart[index].quantity += 1;
         }
         localStorage.setItem('cart', JSON.stringify(cart));
       }
@@ -48,23 +46,51 @@ export class CartService {
     this.loadCart();
   }
   
+  removeOneFromCart(concert: Concert): void {
+    if (concert.id) {
+      if (!isNullOrUndefined(localStorage.getItem('cart'))) {
+        let index: number = -1;
+        let cart: Item[] = JSON.parse(localStorage.getItem('cart'));
+        for (var i = 0; i < cart.length; i++) {
+          let item: Item = cart[i];
+          if (item.concert.id == concert.id) {
+            index = i;
+            break;
+          }
+        }
+  
+        if (index > -1) {
+          let item: Item = cart[index];
+          if (item.quantity > 1) {
+            item.quantity -= 1;
+            cart[index] = item;
+            localStorage.setItem('cart', JSON.stringify(cart));
+          } else {
+            this.remove(concert.id);
+          }
+        }
+      }
+    }
+
+    this.loadCart();
+  }
+
   loadCart(): Array<Item> {
-    this.total = 0;
     this.items = [];
-    let cart = JSON.parse(localStorage.getItem('cart'));
+    let cart: Item[] = JSON.parse(localStorage.getItem('cart'));
     if (!isNullOrUndefined(cart)){
+      this.totalTotal = 0;
       for (var i = 0; i < cart.length; i++) {
-        let item = cart[i];
+        let item: Item = cart[i];
         this.items.push(new Item(item.concert, item.quantity));
-        this.total += item.concert.price * item.quantity;
+        this.totalTotal += item.concert.price * item.quantity;
       }
     }
     return this.items;
   }
   
   remove(id: number): void {
-    let cart: any = JSON.parse(localStorage.getItem('cart'));
-    let index: number = -1;
+    let cart: Item[] = JSON.parse(localStorage.getItem('cart'));
     for (var i = 0; i < cart.length; i++) {
       let item: Item = cart[i];
       if (item.concert.id == id) {

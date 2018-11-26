@@ -69,7 +69,6 @@ export class UserService {
 	}
 
 	updateUser(user : User){
-		console.log(user);
 		this.http.put(this.urlUser + '/' + user.id, user, this.httpOptions).subscribe();
 	}
 

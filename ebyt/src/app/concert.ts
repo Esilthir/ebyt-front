@@ -14,16 +14,16 @@ export class Concert {
 
 	constructor(artist?: string, name?: string, date?: string, genre?: string, description?: string, nbMaxPlaces?: number, price?: number, 
 											nbBoughtPlace?: number, active?: boolean, urlVideo?: string, place?: string){
-		this.artist = artist === undefined ? null : artist;
-		this.name = name === undefined ? null : name;
-		this.date = date === undefined ? null : date;
-		this.genre = genre === undefined ? null : genre;
-		this.description = description === undefined ? null : description;
-		this.nbMaxPlaces = nbMaxPlaces === undefined ? null : nbMaxPlaces;
-		this.price = price === undefined ? null : price;
-		this.nbBoughtPlace = nbBoughtPlace === undefined ? null : nbBoughtPlace;
+		this.artist = artist === undefined ? "artiste" : artist;
+		this.name = name === undefined ? "nom" : name;
+		this.date = date === undefined ? "01/01/2030" : date;
+		this.genre = genre === undefined ? "genre" : genre;
+		this.description = description === undefined ? "description" : description;
+		this.nbMaxPlaces = nbMaxPlaces === undefined ? 1 : nbMaxPlaces;
+		this.price = price === undefined ? 0 : price;
+		this.nbBoughtPlace = nbBoughtPlace === undefined ? 0 : nbBoughtPlace;
 		this.active = active === undefined ? true : active;
 		this.urlVideo = this.urlVideo === undefined ? null : urlVideo;
-		this.place = this.place === undefined ? null : place;
+		this.place = this.place === undefined ? "lieu" : place;
 	}
 }

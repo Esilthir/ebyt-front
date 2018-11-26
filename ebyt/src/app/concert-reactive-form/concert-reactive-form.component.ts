@@ -58,7 +58,6 @@ export class ConcertReactiveFormComponent implements OnInit {
 			this.nbBoughtPlace = c.nbBoughtPlace,
 			this.active = c.active});
 		}
-		console.log(this.id);
 	}
 
 	onPicRecSelected(event){

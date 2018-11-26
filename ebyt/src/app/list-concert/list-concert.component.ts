@@ -3,6 +3,7 @@ import { Concert } from '../concert';
 import { ConcertService } from '../concert.service';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-list-concert',
@@ -12,29 +13,26 @@ import { Router } from '@angular/router';
 export class ListConcertComponent implements OnInit {
 
   rechercheAvancee: boolean;
-
+  item: Item;
   concerts: Array<Concert> = new Array();
   concertsToShow: Array<Concert>;
   concertCount: number;
+  plus = "+";
 
   constructor( private concertService: ConcertService, private cartService: CartService, private router : Router ) {
 
    }
 
   ngOnInit() {
-    console.log("coucou");
     this.concertService.search().subscribe((listeConcert) => {
       this.concerts = listeConcert;
-      console.log(this.concerts);
       this.concertCount = this.concerts.length;
-      console.log(this.concertCount);
       this.concertsToShow = this.concerts.slice(0,10);
-      console.log(this.concertsToShow);
    })
   }
 
   addToCart(concert: Concert) {
-    this.cartService.addToCart(concert);
+    this.cartService.addOneToCart(concert);
   }
 
   paginate(event) {

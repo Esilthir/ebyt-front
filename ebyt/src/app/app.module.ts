@@ -38,6 +38,7 @@ import { NumberFormatPipe } from './number-format.pipe';
 import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-form.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -53,7 +54,8 @@ const routes: Routes =
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'monCompte/:id', component: CompteUtilisateurComponent}
+  {path: 'monCompte/:id', component: CompteUtilisateurComponent},
+  {path: 'payment', component: PaymentComponent}
 ]; 
 
  
@@ -73,7 +75,8 @@ const routes: Routes =
     CartComponent,
     NumberFormatPipe,
     CompteUtilisateurComponent,
-    UserReactiveFormComponent
+    UserReactiveFormComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

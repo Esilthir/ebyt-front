@@ -14,8 +14,7 @@
     <!-- <div class="remplacement"></div> -->
     <img class="robot" src="./assets/icons/robot.png" alt="">
     <div>
-      <li *ngIf="firstname"><a href="">{{firstname}} </a> </li> 
-      <li *ngIf="lastname"><a href="">{{lastname}}</a></li>
+      <li *ngIf="lastname">{{firstname}} {{lastname}} </li> 
       <li><a routerLink="monCompte/{{id}}">Mon Compte</a></li>
       <li>
         <img (click)="logout()" src="./assets/icons/deconnexion.png">
@@ -35,7 +34,7 @@
   <div>
     <ul>
       <li><a href="#">Accueil</a></li>
-      <li><a href="/listConcert">Concerts</a></li>
+      <li><a href="/listConcert" class="concert">Concerts</a></li>
       <li *ngIf="role === 'ROLE_ADMIN'"><p-splitButton label="Admin" [model]="items" styleClass="ui-button-secondary"></p-splitButton></li>
     </ul>
   </div>
@@ -45,28 +44,12 @@
   <!-- Panier -->
   
   <div class="panier">
-    <div class="icon" (click)="afficherPanier = !afficherPanier">
+    <div class="icon" >
       <img src="./assets/icons/panier.png">
-      <p class="prixpanier">TOTAL</p>
+      <a href="cart"><p class="prixpanier">{{tot | numberFormat}}€</p></a>
     </div>
-    <div class="prix" (click)="afficherPanier = !afficherPanier">
-      <h3>Panier</h3>
+    <div class="prix">
+        <a href="cart"><h3>Afficher mon panier</h3></a>
     </div>
-    <div *ngIf="afficherPanier ui-g">
-      <ul *ngFor="let i of cart" class="afficherPanier">
-        <li class="ui-g-3">
-          prix€<span class="boldblue">x2</span>
-        </li>
-        <a href=""><li class="ui-g-6">
-          nom
-        </li></a>
-        <li class="ui-g-3">
-          <span class="bold">Total€</span>
-        </li>
-      </ul>
     </div>
-    <div *ngIf= "afficherPanier" class="total afficherPanier"><a href="">TOTAL€</a></div>
-    
-    <a href="cart"><button *ngIf= "afficherPanier" class="afficherPanier"><h3>Accéder au panier</h3></button></a>
-  </div>
 </nav>
