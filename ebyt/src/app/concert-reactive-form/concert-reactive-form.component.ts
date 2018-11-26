@@ -63,7 +63,6 @@ export class ConcertReactiveFormComponent implements OnInit {
 			this.nbBoughtPlace = c.nbBoughtPlace,
 			this.active = c.active});
 		}
-		console.log(this.id);
 	}
 
 	onPicRecSelected(event){
@@ -96,31 +95,18 @@ export class ConcertReactiveFormComponent implements OnInit {
 		if(this.add){
 			this.serviceConcert.addConcert(concert).then(concert => {
 				console.log(concert.id);
-				// Appels WS images
-				// , this.selectedPicRec, this.selectedPic
+				this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
+				this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
 			});
 			// this.router.navigate(['/'])
 		}
 		else{
 			concert.id = this.id;
 			this.serviceConcert.updateConcert(concert, this.selectedPicRec, this.selectedPic);
+			this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
+			this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
 		}
-
 		console.log(this.selectedPicRec);
-		console.log(this.selectedPic)
-	}
-
-	onUploadCarre(event) {
-    	for(let file of event.files) {
-   	    	this.uploadedFiles.push(file);
-   	    }
-    	this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
-	}
-
-	onUploadRectangle(event){
-		for(let file of event.files) {
-   	    	this.uploadedFiles.push(file);
-   	    }
-    	this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+		console.log(this.selectedPic);
 	}
 }
