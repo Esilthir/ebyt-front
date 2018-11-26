@@ -8,7 +8,7 @@ export class Commande {
     date: Date;
     items: Array<Item>;
 
-    constructor( id?: number, user?: User, items?: Array<Item> , date?:Date){
+    constructor(user?: User, items?: Array<Item>, date?:Date, id?: number){
         this.id = id === undefined ? 0 : id;
         this.user = user === undefined ? null : user;
         this.items = items === undefined ? new Array<Item>() : items;
