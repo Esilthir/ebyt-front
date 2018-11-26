@@ -24,14 +24,22 @@ export class ConcertService {
 	
 	// La on met les méthodes qui discutent avec le back
 	
-	addConcert(concert : Concert){
-		this.http.post(this.url + '/', concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+	addConcert(concert : Concert, imgRec: File, imgCarre: File){
+		let tab: any[3];
+		tab[0] = concert;
+		tab[1] = imgRec;
+		tab[2] = imgCarre;
+		this.http.post(this.url + '/', tab, this.httpOptions).subscribe(() => this.router.navigate(['/']));
 	}
 	
-	updateConcert(concert : Concert){
-		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
+	updateConcert(concert : Concert, imgRec: File, imgCarre: File){
+		let tab: any[3];
+		tab[0] = concert;
+		tab[1] = imgRec;
+		tab[2] = imgCarre;
+		this.http.put(this.url + '/' + concert.id, tab, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
-	
+
 	getConcert(id : number) : Observable<Concert>{
 		return this.http.get<Concert>(this.url + '/' + id, this.httpOptions);
 	}

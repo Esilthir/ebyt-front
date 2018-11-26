@@ -38,6 +38,7 @@ import { NumberFormatPipe } from './number-format.pipe';
 import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-form.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
+import { SelectItem, MessageService } from 'primeng/api';
 
 
 
@@ -73,7 +74,8 @@ const routes: Routes =
     CartComponent,
     NumberFormatPipe,
     CompteUtilisateurComponent,
-    UserReactiveFormComponent
+    UserReactiveFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -97,9 +99,9 @@ const routes: Routes =
     CalendarModule,   
     SpinnerModule,
     PaginatorModule,
-    TabViewModule
+    TabViewModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
