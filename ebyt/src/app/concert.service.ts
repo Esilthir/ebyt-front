@@ -24,16 +24,12 @@ export class ConcertService {
 	
 	// La on met les méthodes qui discutent avec le back
 	
-	addConcert(concert : Concert, imgRec: File, imgCarre: File){
-		let tab: any[3];
-		tab[0] = concert;
-		tab[1] = imgRec;
-		tab[2] = imgCarre;
-		this.http.post(this.url + '/', tab, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+	addConcert(concert : Concert): Promise<Concert> {
+		return this.http.post<Concert>(this.url + '/', concert, this.httpOptions).toPromise();
 	}
 	
 	updateConcert(concert : Concert, imgRec: File, imgCarre: File){
-		let tab: any[3];
+		let tab: any[] = new Array(3);
 		tab[0] = concert;
 		tab[1] = imgRec;
 		tab[2] = imgCarre;
