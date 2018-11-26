@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ConcertService } from '../concert.service';
 import { Concert } from '../concert';
 import {FileUploadModule} from 'primeng/fileupload';
+import { SelectItem, MessageService } from 'primeng/api';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -32,8 +33,12 @@ export class ConcertReactiveFormComponent implements OnInit {
 	active: boolean;
 	selectedPic: File = null;
 	selectedPicRec: File = null;
+	uploadedFiles: any[] = [];
+	urlSauvegardeImageCarre = 'http://localhost:8091/api/Produits/stockerCarre/';
+	urlSauvegardeImageRec = 'http://localhost:8091/api/Produits/stockerRec/';
+	urlImageSelectionne = './assets/images/raw/uploaded/';
 
-  constructor(private fb: FormBuilder, private serviceConcert: ConcertService, private router: Router, private routeActive: ActivatedRoute) {}
+  constructor(private fb: FormBuilder, private serviceConcert: ConcertService, private router: Router, private routeActive: ActivatedRoute, private messageService: MessageService) {}
 
 	ngOnInit() {
 		if( this.routeActive.snapshot.paramMap.get('id') === null){
@@ -70,8 +75,6 @@ export class ConcertReactiveFormComponent implements OnInit {
 
 	onSubmit(){
 		let concert: Concert = new Concert();
-		let fd = new FormData();
-		let fdIsEmpty: boolean = true;
 		concert.artist = this.concertForm.value.artist;
 		concert.name = this.concertForm.value.name;
 		concert.date = this.concertForm.value.date;
@@ -88,24 +91,22 @@ export class ConcertReactiveFormComponent implements OnInit {
 		else{
 			concert.urlVideo = this.concertForm.value.urlVideo;
 		}
-		if(this.concertForm.value.urlPic !== ""){
-			fd.append("Carre", this.selectedPic);
-			fdIsEmpty = false;
-		}
-		if(this.concertForm.value.urlPicRec !== ""){
-			fd.append("Rectangle", this.selectedPicRec);
-			fdIsEmpty = false;
-		}
-		
-		if(!fdIsEmpty){
-			this.serviceConcert.addImage(fd);
-		}
+
 		if(this.add){
-			this.serviceConcert.addConcert(concert);
+			this.serviceConcert.addConcert(concert).then(concert => {
+				console.log(concert.id);
+				this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
+				this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
+			});
+			// this.router.navigate(['/'])
 		}
 		else{
 			concert.id = this.id;
-			this.serviceConcert.updateConcert(concert);
+			this.serviceConcert.updateConcert(concert, this.selectedPicRec, this.selectedPic);
+			this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
+			this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
 		}
+		console.log(this.selectedPicRec);
+		console.log(this.selectedPic);
 	}
 }

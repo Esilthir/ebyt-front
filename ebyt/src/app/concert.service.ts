@@ -24,14 +24,26 @@ export class ConcertService {
 	
 	// La on met les méthodes qui discutent avec le back
 	
-	addConcert(concert : Concert){
-		this.http.post(this.url + '/', concert, this.httpOptions).subscribe(() => this.router.navigate(['/']));
+	addConcert(concert : Concert): Promise<Concert> {
+		return this.http.post<Concert>(this.url + '/', concert, this.httpOptions).toPromise();
 	}
 	
-	updateConcert(concert : Concert){
-		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
+	updateConcert(concert : Concert, imgRec: File, imgCarre: File){
+		let tab: any[] = new Array(3);
+		tab[0] = concert;
+		tab[1] = imgRec;
+		tab[2] = imgCarre;
+		this.http.put(this.url + '/' + concert.id, tab, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
-	
+
+	addImageRec(imgRec: File, id: number) {
+		this.http.post(this.url + '/' + "AddImageRec" + '/' + id, imgRec, this.httpOptions);
+	}
+
+	addImageCarre(imgCarre: File, id: number){
+		this.http.post(this.url + '/' + "AddImageCarre" + '/' + id, imgCarre, this.httpOptions);
+	}
+
 	getConcert(id : number) : Observable<Concert>{
 		return this.http.get<Concert>(this.url + '/' + id, this.httpOptions);
 	}
@@ -89,10 +101,5 @@ export class ConcertService {
 		} else {
 			return this.http.get<Array<Concert>>(this.url + '/getAll', optionsParams);
 		}
-	}
-	
-	addImage(data: FormData) {
-		//TODO: A faire
-		
 	}
 }

@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="recherche-content">
+  <h2 id="coucou">Liste des concerts</h2>
+
+  <app-recherche-concert [(concerts)]="concerts"></app-recherche-concert>
+  
+  </div>
+
+  <div class="tableauCommandes" *ngFor="let c of listCommande" >
+    <a href="">
+      <div class="ui-g listeCommandes">
+          <div class="ui-g-4">
+            <h3> {{c.id}} </h3>
+          </div>
+          <div class="ui-g-4" >
+            <h3> {{c.date}} </h3>
+          </div>
+          <div class="ui-g-4">
+            <h3> {{ c.user.firstname }} {{c.user.lastname}}</h3>
+          </div>
+      </div>
+     </a>
+  </div>
+</div>

@@ -39,6 +39,8 @@ import { UserReactiveFormComponent } from './user-reactive-form/user-reactive-fo
 import {PaginatorModule} from 'primeng/paginator';
 import { CompteUtilisateurComponent } from './compte-utilisateur/compte-utilisateur.component';
 import { PaymentComponent } from './payment/payment.component';
+import { SelectItem, MessageService } from 'primeng/api';
+import { ListeCommandeAdminComponent } from './liste-commande-admin/liste-commande-admin.component';
 
 
 
@@ -52,6 +54,7 @@ const routes: Routes =
   {path: '', component: HomeComponent},
   {path: 'ficheConcert/:id', component: FicheConcertComponent},
   {path: 'admin/concerts', component: ListeConcertAdminComponent},
+  {path: 'admin/commandes', component: ListeCommandeAdminComponent},
   {path: 'listConcert', component: ListConcertComponent},
   {path: 'cart', component: CartComponent},
   {path: 'monCompte/:id', component: CompteUtilisateurComponent},
@@ -76,7 +79,8 @@ const routes: Routes =
     NumberFormatPipe,
     CompteUtilisateurComponent,
     UserReactiveFormComponent,
-    PaymentComponent
+    PaymentComponent,
+    ListeCommandeAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -100,9 +104,9 @@ const routes: Routes =
     CalendarModule,   
     SpinnerModule,
     PaginatorModule,
-    TabViewModule
+    TabViewModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

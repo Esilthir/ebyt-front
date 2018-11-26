@@ -27,11 +27,21 @@
 			<label for="price">Prix :</label><input pInputText type='number' id='price' name='price' formControlName='price' step="0.01" />
 		</div>
 		<div>
-			<label for="urlPicRec">Image rectangle:</label><input pInputText type='file' (change)="onPicRecSelected($event)" id='urlPicRec' name='urlPicRec' accept=".jpg, .jpeg, .png" formControlName='urlPicRec'/>
+			<label for="urlPicRec">Image rectangle:</label><input pInputText type='file' (change)="onPicRecSelected($event)" id='urlPicRec' name='urlPicRec' accept=".png" formControlName='urlPicRec'/>
 		</div>
 		<div>
-			<label for="urlPic">Image carré:</label><input pInputText type='file' (change)="onPicSelected($event)" id='urlPic' name='urlPic' accept=".jpg, .jpeg, .png" formControlName='urlPic'/>
+			<label for="urlPic">Image carré:</label><input pInputText type='file' (change)="onPicSelected($event)" id='urlPic' name='urlPic' accept=".png" formControlName='urlPic'/>
 		</div>
+		<!--<div>
+			<span class="ui-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
+			<label for="urlPicCarre">Image carré:</label>
+        	<p-fileUpload name="urlPicCarre" accept=".png" (onUpload)="onUploadRectable" [showUploadButton]="false"></p-fileUpload>
+		</div>
+		<div>
+        	<span class="ui-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
+        	<label for="urlPicRec">Image rectangle:</label>
+        	<p-fileUpload name="urlPicRec" accept=".png" (onUpload)="onUploadCarre" [showUploadButton]="false"></p-fileUpload>
+		</div>-->
 		<div>
 			<label for="urlVideo">URL Youtube vidéo:</label><input pInputText type='text' id='urlVideo' name='urlVideo' formControlName='urlVideo'/>
 		</div>
