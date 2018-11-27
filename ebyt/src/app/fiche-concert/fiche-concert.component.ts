@@ -3,6 +3,7 @@ import { Concert } from '../concert';
 import { ActivatedRoute } from '@angular/router';
 import { ConcertService } from '../concert.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-fiche-concert',
@@ -11,7 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class FicheConcertComponent implements OnInit {
   concert: Concert;
-  constructor(private route: ActivatedRoute, private service: ConcertService) { 
+  constructor(private cartService: CartService, private route: ActivatedRoute, private service: ConcertService) { 
     this.concert = new Concert();
   }
   
@@ -25,6 +26,10 @@ export class FicheConcertComponent implements OnInit {
       this.concert = c;
       this.concert.urlVideo += "?rel=0&amp;autoplay=1&mute=1";
     });
+  }
+
+  addToCart(concert: Concert) {
+    this.cartService.addOneToCart(concert);
   }
 }
 
