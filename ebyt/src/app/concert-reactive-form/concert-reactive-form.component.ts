@@ -93,7 +93,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		}
 
 		if(this.add){
-			this.serviceConcert.addConcert(concert).then(concert => {
+			this.serviceConcert.addConcert(concert).subscribe(concert => {
 				console.log(concert.id);
 				this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
 				this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);

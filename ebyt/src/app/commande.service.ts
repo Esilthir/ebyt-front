@@ -14,16 +14,20 @@ export class CommandeService {
 		headers: new HttpHeaders({'Content-type': 'application/json'}),
 		reportProgress: true
 	};
-
+  
   constructor(private http: HttpClient, private router: Router) { }
-
+  
   getCommandes() : Observable<Array<Commande>>{
 		return this.http.get<Array<Commande>>(this.url + '/', this.httpOptions);
   }
   
   createCommande(commande: Commande): Promise<Commande> {
     console.log("createCommande");
-		return this.http.post<Commande>(this.url + '/', commande, this.httpOptions).toPromise();
+    return this.http.post<Commande>(this.url + '/', commande, this.httpOptions).toPromise();
   }
-
+  
+  getCommandesUser() : Observable<Array<Commande>>{
+    return this.http.get<Array<Commande>>(this.url + '/commande/' + sessionStorage.getItem('id'), this.httpOptions);
+  }
 }
+

@@ -33,3 +33,7 @@ a:hover{
     position: relative;
     bottom: -15px;
 }
+
+.dropdownGenre {
+    padding-top: 30px;
+}

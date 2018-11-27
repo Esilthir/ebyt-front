@@ -24,8 +24,8 @@ export class ConcertService {
 	
 	// La on met les méthodes qui discutent avec le back
 	
-	addConcert(concert : Concert): Promise<Concert> {
-		return this.http.post<Concert>(this.url + '/', concert, this.httpOptions).toPromise();
+	addConcert(concert : Concert): Observable<Concert> {
+		return this.http.post<Concert>(this.url + '/', concert, this.httpOptions);
 	}
 	
 	updateConcert(concert : Concert, imgRec: File, imgCarre: File){
@@ -67,22 +67,27 @@ export class ConcertService {
 	concertCount() : Observable<number> {
 		return this.http.get<number>(this.url + '/count', this.httpOptions);
 	}
+
+	getGenres() : Observable<Array<string>> {
+		return this.http.get<Array<string>>(this.url + "/allGenres", this.httpOptions);
+	}
 	
-	search(name?:string, artist?:string, date?:Date, place?:string, priceMax?:number, active?:boolean, pageNumber?:number, pageSize?:number ) : Observable<Array<Concert>> {
+	search(name?:string, artist?:string, genre?:string, place?:string, priceMax?:number, active?:boolean) : Observable<Array<Concert>> {
 		
 		let optionsParams = 
 		{ 	params: new HttpParams(),
 			headers: new HttpHeaders({'Content-type': 'application/json'}),
 			reportProgress: true
 		};
+
 		if (name) {
 			optionsParams.params = optionsParams.params.set('name', name);
 		}
 		if (artist) {
 			optionsParams.params = optionsParams.params.set('artist',artist);
 		}
-		if (date) {
-			optionsParams.params = optionsParams.params.set('date', date.toString());
+		if (genre) {
+			optionsParams.params = optionsParams.params.set('genre', genre);
 		}
 		if (place) {
 			optionsParams.params = optionsParams.params.append('place', place);
@@ -93,9 +98,7 @@ export class ConcertService {
 		if (active) {
 			optionsParams.params = optionsParams.params.set('active', active.toString());
 		}
-		optionsParams.params = optionsParams.params.set('pageNumber', "1");
-		optionsParams.params = optionsParams.params.set('pageSize', "10");
-		
+
 		if (sessionStorage.getItem('role') === "ROLE_ADMIN") {
 			return this.http.get<Array<Concert>>(this.url + '/getAllAdmin', optionsParams);
 		} else {

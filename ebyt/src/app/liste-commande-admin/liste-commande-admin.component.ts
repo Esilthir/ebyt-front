@@ -18,7 +18,6 @@ export class ListeCommandeAdminComponent implements OnInit {
 
   ngOnInit() {
     this.commandeService.getCommandes().subscribe( (c) => {
-      console.log(c);
       this.listCommande = c ;
     } 
   )}

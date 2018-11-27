@@ -18,7 +18,7 @@
 </div>
 
 
-<div *ngFor="let concert of concertsToShow;">
+<div *ngFor="let concert of concerts">
   <div class="listeConcertAdminDetail" [ngClass]="{'inactiveConcert': !concert.active}">
 
     <div class="ui-g-3"> <a routerLink="../../ficheConcert/{{concert.id}}">{{concert.name}} - {{concert.artist}}</a> </div>
