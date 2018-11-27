@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../item';
 import { CartService } from '../cart.service';
 import { CommandeService } from '../commande.service';
@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   authenticated: boolean;
   
 	constructor(
+    private router: Router,
 		private activatedRoute: ActivatedRoute,
     private cartService: CartService,
     private commandeService: CommandeService
@@ -62,8 +63,14 @@ export class CartComponent implements OnInit {
       localStorage.clear();
     }
 
-    createCom(cart){
-      let commande = new Commande(new User(sessionStorage.getItem('username')), cart);
-      this.commandeService.createCommande(commande);
+    createCommande() {
+      let userId: string = sessionStorage.getItem('id');
+      let user: User = new User();
+      user.id = Number.parseInt(userId);
+
+      let commande = new Commande(user, this.cart);
+      this.commandeService.createCommande(commande).then(() => { 
+        this.removeAll();
+      this.router.navigate(['payment']) });
     }
   }
