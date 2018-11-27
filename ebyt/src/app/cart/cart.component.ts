@@ -71,6 +71,6 @@ export class CartComponent implements OnInit {
       let commande = new Commande(user, this.cart);
       this.commandeService.createCommande(commande).then(() => { 
         this.removeAll();
-      this.router.navigate(['/']) });
+      this.router.navigate(['payment']) });
     }
   }

@@ -152,3 +152,9 @@ div.icon{
 .concert{
     color: #23c8dd;
 }
+
+.logbutton{
+    width: 20%;
+    margin-top: 25px;
+    cursor: pointer;
+}

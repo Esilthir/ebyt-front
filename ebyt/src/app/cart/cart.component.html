@@ -43,7 +43,7 @@
       <div class="tot">
         TOTAL : {{tot | numberFormat}}€ 
         <div class="valid" *ngIf="authenticated" (click)="createCommande()">Valider mon panier</div>
-        <div class="valid" *ngIf="!authenticated" ><a href="login">Vous devez être connecté pour valider</a></div>
+        <a href="login"><div class="valid" *ngIf="!authenticated" >Vous devez être connecté pour valider</div></a>
       </div>
       
     </div>
