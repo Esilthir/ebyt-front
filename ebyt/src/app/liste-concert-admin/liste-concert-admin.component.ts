@@ -41,7 +41,7 @@ export class ListeConcertAdminComponent implements OnInit {
   updateActiveConcert(concert: Concert) {
     let f1 = null;
     let f2 = null;
-    this.concertService.updateConcert(concert, f1, f2);
+    this.concertService.updateConcert(concert);
   }
 
   paginate(event) {

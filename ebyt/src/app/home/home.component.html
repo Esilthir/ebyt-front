@@ -1,7 +1,7 @@
 <div class=home><h1 class="header fond-fame-concert">La sélection de <span class="title">EBYT</span> :</h1>
   <div class="ui-g fond-fame-concert fame-concert" >
     <div class="ui-g-3 header imgs" *ngFor="let concert of fameConcerts">
-      <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" [src]="concert.urlPic | safePipe"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
+      <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" src="/assets/Carre{{concert.id}}.jpg"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
     </div>
   </div>
 </div>
@@ -10,6 +10,6 @@
 
 <div class="ui-g lastconcerts">
   <div class="ui-g-3 other imgs" *ngFor="let concert of lastConcerts">
-    <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" [src]="concert.urlPic | safePipe"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
+    <div class=" photo"><a routerLink="../ficheConcert/{{concert.id}}"><img class= "homeImage" src="/assets/Carre{{concert.id}}.jpg"><div class="hoverimage"><p>{{concert.date | date: "dd/MM/yyyy"}}</p><p>{{concert.place}}</p></div><p class=artist>{{concert.artist}}</p></a></div>
   </div>
 </div>

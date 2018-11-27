@@ -28,12 +28,8 @@ export class ConcertService {
 		return this.http.post<Concert>(this.url + '/', concert, this.httpOptions);
 	}
 	
-	updateConcert(concert : Concert, imgRec: File, imgCarre: File){
-		let tab: any[] = new Array(3);
-		tab[0] = concert;
-		tab[1] = imgRec;
-		tab[2] = imgCarre;
-		this.http.put(this.url + '/' + concert.id, tab, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
+	updateConcert(concert : Concert){
+		this.http.put(this.url + '/' + concert.id, concert, this.httpOptions).subscribe( () => this.router.navigate(['/admin/concerts']));
 	}
 
 	addImageRec(imgRec: File, id: number) {

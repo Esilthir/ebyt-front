@@ -11,9 +11,7 @@
 		<div>
 			<label for="date">Date :</label><input pInputText type='date' id='date' name='date' formControlName='date'/>
 		</div>
-		<div>
-			<label for="genre">Genre :</label><input pInputText type='text' id='genre' name='genre' formControlName='genre'/>
-		</div>
+
 		<div>
 			<label for="place">Adresse :</label><input pInputText type='text' id='place' name='place' formControlName='place'/>
 		</div>
@@ -32,6 +30,7 @@
 		<div>
 			<label for="urlPic">Image carré:</label><input pInputText type='file' (change)="onPicSelected($event)" id='urlPic' name='urlPic' accept=".png" formControlName='urlPic'/>
 		</div>
+
 		<!--<div>
 			<span class="ui-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
 			<label for="urlPicCarre">Image carré:</label>
@@ -44,6 +43,9 @@
 		</div>-->
 		<div>
 			<label for="urlVideo">URL Youtube vidéo:</label><input pInputText type='text' id='urlVideo' name='urlVideo' formControlName='urlVideo'/>
+		</div>
+		<div>
+			<p-dropdown id="genre" [options]="genres" placeholder="Genre" optionLabel="name" [showClear]="true" formControlName='genre'></p-dropdown>
 		</div>
 		<div class=bouton>
 			<button type='submit' [disabled]='!concertForm.valid'>Enregister</button>			

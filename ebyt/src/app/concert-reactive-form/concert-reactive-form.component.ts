@@ -27,6 +27,20 @@ export class ConcertReactiveFormComponent implements OnInit {
 		place: ['', Validators.required]
 	});
 
+	genres = [
+		{name: 'POP'},
+		{name: 'ROCK'},
+		{name: 'METAL'},
+		{name: 'CLASSIQUE'},
+		{name: 'ELECTRO'},
+		{name: 'VARIETE'},
+		{name: 'ANNEES 80'},
+		{name: 'PUNK'},
+		{name: 'BLUES'},
+		{name: 'JAZZ'},
+		{name: 'ACOUSTIQUE'}
+	  ];
+
 	add: boolean;
 	id: number;
 	nbBoughtPlace: number;
@@ -78,7 +92,7 @@ export class ConcertReactiveFormComponent implements OnInit {
 		concert.artist = this.concertForm.value.artist;
 		concert.name = this.concertForm.value.name;
 		concert.date = this.concertForm.value.date;
-		concert.genre = this.concertForm.value.genre;
+		concert.genre = this.concertForm.value.genre.name;
 		concert.description = this.concertForm.value.description;
 		concert.nbMaxPlaces = this.concertForm.value.nbMaxPlaces;
 		concert.price = this.concertForm.value.price;
@@ -94,19 +108,18 @@ export class ConcertReactiveFormComponent implements OnInit {
 
 		if(this.add){
 			this.serviceConcert.addConcert(concert).subscribe(concert => {
-				console.log(concert.id);
+
 				this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
 				this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
+				this.router.navigate(['/']);
 			});
 			// this.router.navigate(['/'])
 		}
 		else{
 			concert.id = this.id;
-			this.serviceConcert.updateConcert(concert, this.selectedPicRec, this.selectedPic);
-			this.serviceConcert.addImageCarre(this.selectedPic, concert.id);
-			this.serviceConcert.addImageRec(this.selectedPicRec, concert.id);
+			this.serviceConcert.updateConcert(concert);
+			this.router.navigate(['/']);
 		}
-		console.log(this.selectedPicRec);
-		console.log(this.selectedPic);
+
 	}
 }
