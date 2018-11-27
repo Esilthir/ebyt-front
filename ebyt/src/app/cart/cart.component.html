@@ -42,8 +42,8 @@
     <div *ngIf="tot !== 0">
       <div class="tot">
         TOTAL : {{tot | numberFormat}}€ 
-        <div class="valid" *ngIf="authenticated" (click)="removeAll()"><a href="payment">Valider mon panier</a></div>
-        <div class="valid" *ngIf="!authenticated" (click)="createCom(cart)"><a href="login">Vous devez être connecté pour valider</a></div>
+        <div class="valid" *ngIf="authenticated" (click)="createCommande()">Valider mon panier</div>
+        <div class="valid" *ngIf="!authenticated" ><a href="login">Vous devez être connecté pour valider</a></div>
       </div>
       
     </div>

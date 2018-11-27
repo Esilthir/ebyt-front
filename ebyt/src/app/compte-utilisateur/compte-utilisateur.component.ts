@@ -1,5 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Commande } from '../commande';
+import { CommandeService } from '../commande.service';
+import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compte-utilisateur',
@@ -8,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompteUtilisateurComponent implements OnInit {
 
-  constructor() { }
+  listCommande : Array<Commande> = new Array();
+
+  constructor( private commandeService: CommandeService, private cartService: CartService, private router : Router ) { }
 
   ngOnInit() {
-  }
-
+    this.commandeService.getCommandes().subscribe( (c) => {
+      console.log(c);
+      this.listCommande = c ;
+    } 
+  )}
 }

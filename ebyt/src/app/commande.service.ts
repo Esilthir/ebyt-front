@@ -21,8 +21,9 @@ export class CommandeService {
 		return this.http.get<Array<Commande>>(this.url + '/', this.httpOptions);
   }
   
-  createCommande(commande: Commande) : void {
-		this.http.post<Array<Commande>>(this.url + '/', commande, this.httpOptions).subscribe();
+  createCommande(commande: Commande): Promise<Commande> {
+    console.log("createCommande");
+		return this.http.post<Commande>(this.url + '/', commande, this.httpOptions).toPromise();
   }
 
 }
